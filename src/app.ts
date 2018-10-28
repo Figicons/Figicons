@@ -1,5 +1,4 @@
-import 'babel-polyfill';
+import Parse from './parse';
 
-const syncBtn = document.getElementById('sync');
-
-syncBtn!.addEventListener('click', () => {});
+$('.svgs').empty();
+Parse.do();

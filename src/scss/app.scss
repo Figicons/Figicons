@@ -1,23 +1,33 @@
 @import url("https://rsms.me/inter/inter-ui.css");
 
 * {
-  box-sizing: border-box;
-  user-select: none;
+    box-sizing: border-box;
+    user-select: none;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-font-family: "Inter UI", sans-serif;
-  overflow: hidden;
-  height: 100%;
-  width: 100%;
-  font-size: 12px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 0;
+    font-family: "Inter UI", sans-serif;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    font-size: 12px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 p {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.svgs {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+
+    .svg {
+        padding: 24px;
+    }
 }

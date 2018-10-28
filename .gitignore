@@ -2,3 +2,4 @@ node_modules
 dist
 .cache
 src/figcons.json
+fetch.go
