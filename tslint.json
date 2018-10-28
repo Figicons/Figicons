@@ -1,0 +1,16 @@
+{
+"extends": [
+    "tslint:recommended",
+    "tslint-config-prettier"
+],
+"rules": {
+    "no-console": false
+},
+"linterOptions": {
+    "exclude": [
+    "prettier.config.js",
+    "config/**/*.js",
+    "node_modules/**/*.ts",
+    ]
+}
+}
