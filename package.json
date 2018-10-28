@@ -7,11 +7,13 @@
   "private": false,
   "scripts": {
     "start": "parcel ./src/index.html",
-    "fetch": "node --harmony fetch.js"
+    "fetch": "node --harmony fetch.js",
+    "parse": "node --harmony parse.js"
   },
   "dependencies": {
     "jquery": "^3.3.1",
     "parcel": "^1.10.3",
+    "parse5": "^5.1.0",
     "request": "^2.88.0"
   },
   "devDependencies": {
