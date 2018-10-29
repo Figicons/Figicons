@@ -7,13 +7,17 @@
   "private": false,
   "scripts": {
     "start": "parcel ./src/index.html",
+    "build": "sh ./build.sh",
+    "clean": "svgo --quiet --config=./svgo.yml -f ./svgs -o ./svgs",
     "fetch": "node --harmony fetch.js",
     "parse": "node --harmony parse.js"
   },
   "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
     "parcel": "^1.10.3",
     "parse5": "^5.1.0",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "tachyons-sass": "^4.9.3"
   },
   "devDependencies": {
     "@types/jquery": "^3.3.22",
@@ -26,6 +30,7 @@
     "stylelint": "^9.6.0",
     "stylelint-config-recommended": "^2.1.0",
     "stylelint-scss": "^3.3.2",
+    "svgo": "^1.1.1",
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.15.0",
     "typescript": "^3.1.3"

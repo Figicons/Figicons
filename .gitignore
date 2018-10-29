@@ -3,3 +3,4 @@ dist
 .cache
 src/figcons.json
 fetch.go
+*.woff2
