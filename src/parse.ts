@@ -1,5 +1,5 @@
 import * as figicons from '../figicons.json';
-import * as iconConfig from './icons.config.json';
+import * as iconConfig from './iconAttributes.json';
 
 export default class Parse {
     public static do() {

@@ -1,6 +1,7 @@
 node_modules
 dist
+extract
 .cache
-src/figcons.json
+figmaAPI.json
 fetch.go
 *.woff2

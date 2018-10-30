@@ -1,6 +1,6 @@
 const request = require('request');
 const fs = require('fs');
-const config = require('./src/figcons.json');
+const figmaConfig = require('./figmaAPI.json');
 
 const getImages = async icons => {
     const perChunk = 30;
@@ -20,7 +20,7 @@ const getImages = async icons => {
     }, []);
 
     const chunkPromises = frameChunks.map(frameChunk => {
-        return fetchUrl(`images/${config.fileKey}?ids=${frameChunk.join(',')}&format=svg`);
+        return fetchUrl(`images/${figmaConfig.fileKey}?ids=${frameChunk.join(',')}&format=svg`);
     });
 
     const res = await Promise.all(chunkPromises);
@@ -48,7 +48,7 @@ const fetchUrl = url => {
         url: `https://api.figma.com/v1/${url}`,
         headers: {
             'Content-Type': 'application/json',
-            'X-Figma-Token': config.token,
+            'X-Figma-Token': figmaConfig.token,
         },
     };
 
@@ -63,7 +63,7 @@ const fetchUrl = url => {
 };
 
 try {
-    fetchUrl(`files/${config.fileKey}`).then(data => {
+    fetchUrl(`files/${figmaConfig.fileKey}`).then(data => {
         const icons = data.document.children[0].children;
 
         getImages(icons);
