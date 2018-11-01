@@ -7,24 +7,27 @@
   "private": false,
   "scripts": {
     "start": "parcel ./src/index.html",
-    "build:icons": "sh ./build.sh",
-    "build:extract": "webpack",
+    "build": "sh ./build.sh",
+    "bundle": "webpack",
     "clean": "svgo --quiet --config=./svgo.yml -f ./svgs -o ./svgs",
     "fetch": "node --harmony fetch.js",
     "parse": "node --harmony parse.js"
   },
   "dependencies": {
     "@webcomponents/custom-elements": "^1.2.1",
+    "camelcase": "^5.0.0",
     "cheerio": "^1.0.0-rc.2",
     "parcel": "^1.10.3",
     "parse5": "^5.1.0",
     "react": ">=15",
     "react-dom": "^16.6.0",
+    "react-highlight": "^0.12.0",
     "react-router-dom": "^4.3.1",
     "request": "^2.88.0",
     "tachyons-sass": "^4.9.3"
   },
   "devDependencies": {
+    "@types/camelcase": "^4.1.0",
     "@types/jquery": "^3.3.22",
     "@types/react": "^16.4.18",
     "@types/react-dom": "^16.0.9",

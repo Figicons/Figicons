@@ -3,14 +3,14 @@ import * as ReactDOM from 'react-dom';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Nav from './components/Nav';
 import Home from './components/Home';
-import How from './components/How';
+import GettingStarted from './components/GettingStarted';
 import Usage from './components/Usage';
 import Footer from './components/Footer';
 
 const Routes = () => (
     <Switch>
         <Route exact path="/" render={props => <Home />} />
-        <Route exact path="/how" render={props => <How />} />
+        <Route exact path="/getting-started" render={props => <GettingStarted />} />
         <Route exact path="/usage" render={props => <Usage />} />
     </Switch>
 );

@@ -11,7 +11,7 @@ const Nav = () => (
             </Link>
             <div className="options">
                 <Link to={'/'}>Icons</Link>
-                <Link to={'/how'}>How it works</Link>
+                <Link to={'/getting-started'}>Getting started</Link>
                 <Link to={'/usage'}>Usage</Link>
                 <div className="button small grey">Designer Pack</div>
             </div>

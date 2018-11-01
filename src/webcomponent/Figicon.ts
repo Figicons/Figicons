@@ -7,7 +7,7 @@ interface AttributeOverride {
 }
 
 const createSVG = (innerHTML: string, attrOverride: AttributeOverride) => {
-    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    const svg = document.createElementNS((iconAttrs as any).xmlns || 'http://www.w3.org/2000/svg', 'svg');
 
     Object.entries(iconAttrs).forEach(([prop, val]) => {
         console.log(attrOverride);
@@ -17,7 +17,6 @@ const createSVG = (innerHTML: string, attrOverride: AttributeOverride) => {
             value = attrOverride.size;
         }
 
-        console.log('value', value);
         svg.setAttribute(prop, value.toString());
     });
 

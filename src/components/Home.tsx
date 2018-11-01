@@ -1,4 +1,6 @@
 import * as React from 'react';
+import Figicon from '../reactcomponent/Figicon';
+import * as figicons from '../../figicons.json';
 
 const Home = () => (
     <React.Fragment>
@@ -52,7 +54,16 @@ const Home = () => (
         </section>
         <section className="mw7 center">
             <h2>Default icons</h2>
-            <div className="svgs" />
+            <div className="svgs">
+                {Object.keys(figicons).map(name => (
+                    <div className="svg">
+                        <div className="icon">
+                            <Figicon key={name} name={name} />
+                        </div>
+                        <div className="desc">{name}</div>
+                    </div>
+                ))}
+            </div>
         </section>
     </React.Fragment>
 );

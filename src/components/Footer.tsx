@@ -6,7 +6,7 @@ const Footer = () => (
         <div className="mw7 center">
             <p>Made with L by Stefan</p>
             <div className="options">
-                <Link to={'/how'}>How it works</Link>
+                <Link to={'/getting-started'}>Getting started</Link>
                 <Link to={'/usage'}>Usage</Link>
                 <a>Download Designer Pack</a>
             </div>
