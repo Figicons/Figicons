@@ -80,7 +80,7 @@ code {
         color: #999;
     }
 
-    .yellow, .hljs-name {
+    .yellow, .hljs-name, .hljs-keyword {
         color: #ffc866;
     }
 
@@ -118,13 +118,40 @@ nav {
     }
 }
 
-section {
+section.desc {
+    .snippet {
+        width: 100%;
+
+        pre {
+            display: flex;
+            width: 100%;
+            word-wrap: break-word;
+            margin: 0;
+        }
+
+        code {
+            width: 100%;
+        }
+    }
+
     h2 + p {
         margin-top: 8px;
     }
 
+    p + .snippet {
+        margin-top: 16px;
+    }
+
     p + h3 {
-        margin: 16px 0 12px 0;
+        margin: 24px 0 8px 0;
+    }
+
+    .snippet + h3 {
+        margin: 24px 0 8px 0;
+    }
+
+    .snippet + p {
+        margin: 16px 0 0 0;
     }
 
     .snippet + .snippet {

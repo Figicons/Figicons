@@ -17,12 +17,12 @@ const Usage = () => (
             </p>
         </div>
         <div className="mw7 center">
-            <section>
+            <section className="desc">
                 <h2>Setting up Figma</h2>
                 <p>It all starts from your</p>
             </section>
 
-            <section>
+            <section className="desc">
                 <h2>Fetching &amp; building your iconset</h2>
                 <p>
                     We make it effortless for you at this point to fetch, clean, optimize &amp; setup all your icons in a neat little file.
@@ -35,7 +35,7 @@ const Usage = () => (
                 </div>
             </section>
 
-            <section>
+            <section className="desc">
                 <h2>Setting up icon options</h2>
                 <p>
                     You can customize the look of your icons by editing the icon attributes file. By default, icons are 24x24 and have a 2px
@@ -43,7 +43,7 @@ const Usage = () => (
                 </p>
             </section>
 
-            <section>
+            <section className="desc">
                 <h2>Preparing for usage</h2>
                 <p>
                     It's time to bundle your custom icons into React &amp; Web Components (you can use whichever). Run the below command in
