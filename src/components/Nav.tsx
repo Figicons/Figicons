@@ -10,9 +10,9 @@ const Nav = () => (
                 <code className="tiny">1.0.0</code>
             </Link>
             <div className="options">
-                <Link to={'/'}>Icons</Link>
-                <Link to={'/getting-started'}>Getting started</Link>
+                <Link to={'/getting-started'}>Building custom icons</Link>
                 <Link to={'/usage'}>Usage</Link>
+                <Link to={'/'}>FAQ</Link>
                 <div className="button small grey">Designer Pack</div>
             </div>
         </div>

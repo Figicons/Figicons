@@ -1,25 +1,41 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
+import Figicon from '../reactcomponent/Figicon';
+import Highlight from 'react-highlight';
 
 const Usage = () => (
     <React.Fragment>
         <div className="info mw7 center">
-            <h1 className="mb3">Getting started</h1>
+            <h1 className="mb3">Building custom icons</h1>
             <p>
                 Figicons ships with over 100+ default icons, designed in Figma. However, Figicons was built from the ground up to support
                 your own Figma-designed icons. With just a few steps, you can create a customized Figicon set to use on your site right
                 away.
             </p>
             <br />
-            <p>
-                If you intend to use the default Figicons as they are, you can skip <strong>Getting started</strong> and just head over to{' '}
-                <Link to={'/usage'}>Usage</Link> instead.
-            </p>
+
+            <div className="alert dark">
+                Skip this tutorial if you intend to use the default Figicons set
+                <Figicon name="arrow-right" />
+            </div>
         </div>
         <div className="mw7 center">
             <section className="desc">
-                <h2>Setting up Figma</h2>
-                <p>It all starts from your</p>
+                <h2>Setting up the Figma API</h2>
+                <p>First, we'll need to get a communication going with Figma. What we'll need:</p>
+                <div className="snippet">
+                    <small>a figma file URL</small>
+                    <code className="gray">
+                        https://www.figma.com/file/<span className="white">eIOdDEWeiHETuccK5xpfNhEc</span>
+                    </code>
+                </div>
+                <div className="snippet">
+                    <small>figmapi.json</small>
+                    <Highlight className="json">{`{ 
+    "fileKey": "eIOdDEWeiHETuccK5xpfNhEc",
+    "token": "4562-826234b4-7936-4bf6-9d52-464da724bbdb"
+}`}</Highlight>
+                </div>
             </section>
 
             <section className="desc">
@@ -38,9 +54,24 @@ const Usage = () => (
             <section className="desc">
                 <h2>Setting up icon options</h2>
                 <p>
-                    You can customize the look of your icons by editing the icon attributes file. By default, icons are 24x24 and have a 2px
-                    rounded stroke.
+                    Figicons ship with a default setup for how SVG icons will be rendered. Each property will be added as an attribute to
+                    the component that'll be created. Now is the time to add the style to your icons (these properties can be overriden
+                    later on).
                 </p>
+                <div className="snippet">
+                    <small>iconAttributes.json</small>
+                    <Highlight className="json">{`{
+    "xmlns": "http://www.w3.org/2000/svg",
+    "viewBox": "0 0 24 24",
+    "fill": "none",
+    "height": 24,
+    "stroke": "currentColor",
+    "stroke-width": 2,
+    "stroke-linejoin": "round",
+    "stroke-linecap": "round",
+    "width": 24
+}`}</Highlight>
+                </div>
             </section>
 
             <section className="desc">
@@ -54,11 +85,17 @@ const Usage = () => (
                         <span className="gray">$</span> yarn run bundle
                     </code>
                 </div>
-
-                <p className="mt3">
-                    When done, check out <Link to={'/usage'}>how to use</Link> your icon components on your site.
-                </p>
             </section>
+
+            <div className="alert dark">
+                <span>
+                    Next, add your icon components to your site
+                    <Figicon name="arrow-right" />
+                </span>
+                <Link className="button" to={'/usage'}>
+                    Usage
+                </Link>
+            </div>
         </div>
     </React.Fragment>
 );

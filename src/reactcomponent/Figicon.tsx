@@ -5,6 +5,7 @@ const camelCase = require('camelcase');
 
 interface Props {
     name: string;
+    [index: string]: any;
 }
 
 const svgAttrs = () =>
@@ -15,7 +16,7 @@ const svgAttrs = () =>
     }, {});
 
 const Figicon = ({ name, ...props }: Props) => (
-    <svg {...svgAttrs()} {...props} dangerouslySetInnerHTML={{ __html: figicons[name].content }} />
+    <svg className="figicon" {...svgAttrs()} {...props} dangerouslySetInnerHTML={{ __html: figicons[name].content }} />
 );
 
 export default Figicon;

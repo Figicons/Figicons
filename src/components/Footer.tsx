@@ -6,8 +6,8 @@ const Footer = () => (
         <div className="mw7 center">
             <p>Made with L by Stefan</p>
             <div className="options">
-                <Link to={'/getting-started'}>Getting started</Link>
-                <Link to={'/usage'}>Usage</Link>
+                <a href="https://twitter.com/figicons">@figicons</a>
+                <a href="https://github.com/animify/figicons">Open source</a>
                 <a>Download Designer Pack</a>
             </div>
         </div>
