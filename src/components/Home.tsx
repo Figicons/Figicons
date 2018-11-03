@@ -18,8 +18,7 @@ const Home = () => (
         <section className="mw7 center">
             <h2>Using icons</h2>
             <p className="mt3">
-                Fig icons are currently programmatically supported as Web Components and as React Components.{' '}
-                <a>Read more docs on Usage.</a>
+                Figicons are currently programmatically supported as Web Components and as React Components. <a>Read more docs on Usage.</a>
             </p>
             <div className="snippets">
                 <div className="snippet">
