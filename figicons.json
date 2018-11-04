@@ -404,6 +404,11 @@
     "file": "launch.svg",
     "content": "<path stroke=\"currentColor\" d=\"M20 4h-4m4 0v4m0-4l-6 6\"></path><path stroke=\"currentColor\" d=\"M20 12.111V16a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V8a4 4 0 0 1 4-4h3.889\"></path>"
   },
+  "lightbulb": {
+    "name": "lightbulb",
+    "file": "lightbulb.svg",
+    "content": "<path stroke=\"currentColor\" d=\"M12 7c-2.761 0-5 2.303-5 5.143a5.169 5.169 0 0 0 2.5 4.455V19h5v-2.402a5.169 5.169 0 0 0 2.5-4.455C17 9.303 14.761 7 12 7z\"></path><path stroke=\"currentColor\" d=\"M11 22h2\"></path><path stroke=\"currentColor\" d=\"M12 4V2\"></path><path stroke=\"currentColor\" d=\"M20 11h2\"></path><path stroke=\"currentColor\" d=\"M2 11h2\"></path><path stroke=\"currentColor\" d=\"M4.786 4.386L6.2 5.8\"></path><path stroke=\"currentColor\" d=\"M19.214 4.386L17.8 5.8\"></path>"
+  },
   "link": {
     "name": "link",
     "file": "link.svg",
@@ -448,6 +453,11 @@
     "name": "monitor",
     "file": "monitor.svg",
     "content": "<rect width=\"18\" height=\"12\" x=\"3\" y=\"4\" stroke=\"currentColor\" rx=\"2\"></rect><path stroke=\"currentColor\" d=\"M12 16v3\"></path><path stroke=\"currentColor\" d=\"M7 20h10\"></path>"
+  },
+  "moon": {
+    "name": "moon",
+    "file": "moon.svg",
+    "content": "<path stroke=\"currentColor\" d=\"M21 14.325A8.255 8.255 0 0 1 9.675 3 9.176 9.176 0 0 0 3 11.828 9.172 9.172 0 0 0 12.172 21c4.2 0 7.74-2.823 8.828-6.675z\"></path>"
   },
   "move": {
     "name": "move",
@@ -658,6 +668,11 @@
     "name": "subtract",
     "file": "subtract.svg",
     "content": "<path stroke=\"currentColor\" d=\"M19 12H5\"></path>"
+  },
+  "sun": {
+    "name": "sun",
+    "file": "sun.svg",
+    "content": "<path stroke=\"currentColor\" d=\"M12 4V2\"></path><path stroke=\"currentColor\" d=\"M20 12h2\"></path><path stroke=\"currentColor\" d=\"M2 12h2\"></path><path stroke=\"currentColor\" d=\"M4.786 4.386L6.2 5.8\"></path><path stroke=\"currentColor\" d=\"M19.214 4.386L17.8 5.8\"></path><path stroke=\"currentColor\" d=\"M12 20v2\"></path><path stroke=\"currentColor\" d=\"M4.786 19.614L6.2 18.2\"></path><path stroke=\"currentColor\" d=\"M19.214 19.614L17.8 18.2\"></path><circle cx=\"12\" cy=\"12\" r=\"4\" stroke=\"currentColor\"></circle>"
   },
   "support": {
     "name": "support",

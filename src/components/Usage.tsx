@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
+import Figicon from '../reactcomponent/Figicon';
 import Highlight from 'react-highlight';
 
 const Usage = () => (
@@ -7,9 +8,17 @@ const Usage = () => (
         <div className="info mw7 center">
             <h1 className="mb3">Usage</h1>
             <p>
-                Figicons is a completely open-source icon set over 100+ icons designed in Figma and comes with it's own Figma API parser
-                built in. To find out how you can use your own icon set, check out <Link to={'how'}>how it works</Link>.
+                React &amp; Web Components are automagically generated based on the Figicons config. Import the required script and use the
+                components immediately, simple.
             </p>
+            <br />
+
+            <div className="alert dark">
+                <span>
+                    <Figicon name="lightbulb" className="mr2" /> To use your own Figma icons, check out how to build custom icons
+                </span>
+                <Figicon name="arrow-right" />
+            </div>
         </div>
 
         <div className="mw7 center">
