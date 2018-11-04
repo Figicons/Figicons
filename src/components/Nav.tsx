@@ -8,10 +8,10 @@ const Nav = () => (
         <div className="mw8 center">
             <Link to={'/'} className="logo">
                 <img src={logotype} height="22" />
-                <code className="tiny">{pkg.version}</code>
+                <code className="tiny">{(pkg as any).version}</code>
             </Link>
             <div className="options">
-                <Link to={'/getting-started'}>Building custom icons</Link>
+                <Link to={'/building-icons'}>Building custom icons</Link>
                 <Link to={'/usage'}>Usage</Link>
                 <Link to={'/'}>FAQ</Link>
                 <div className="button small grey">Designer Pack</div>

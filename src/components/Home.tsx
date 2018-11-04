@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Figicon from '../reactcomponent/Figicon';
 import * as figicons from '../../figicons.json';
+import { Link } from 'react-router-dom';
 
 const Home = () => (
     <React.Fragment>
@@ -12,13 +13,14 @@ const Home = () => (
             <div className="more">
                 <div className="button">Open Icons in Figma</div>
                 <div className="split" />
-                <a>See on Github</a>
+                <a href="https://github.com/animify/figicons">See on Github</a>
             </div>
         </main>
         <section className="mw7 center">
             <h2>Using icons</h2>
-            <p className="mt3">
-                Figicons are currently programmatically supported as Web Components and as React Components. <a>Read more docs on Usage.</a>
+            <p className="mt2">
+                Figicons are currently programmatically supported as Web Components and as React Components.&nbsp;
+                <Link to={'/usage'}>Read more docs on Usage.</Link>
             </p>
             <div className="snippets">
                 <div className="snippet">
@@ -53,6 +55,10 @@ const Home = () => (
         </section>
         <section className="mw7 center">
             <h2>Default icons</h2>
+            <p className="mt2">
+                There are over 150+ icons that ship by default with Figicons. You can also{' '}
+                <Link to={'/building-icons'}>create your own framework</Link> based on your custom Figma-designed icons.
+            </p>
             <div className="svgs">
                 {Object.keys(figicons).map(name => (
                     <div className="svg">

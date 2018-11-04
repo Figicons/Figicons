@@ -2,7 +2,8 @@ $color-primary: #17EF95;
 $color-grey100: #1a1a1a;
 $color-grey60: #212121;
 $color-grey40: #393939;
-$color-grey20: #A2A2A2;
+$color-grey30: #757575;
+$color-grey20: #BFBFBF;
 $color-grey10: #ccc;
 
 @import url("https://fast.fonts.net/cssapi/401a279a-dbd2-44ae-ba21-6b71d85f4a9c.css");
@@ -39,15 +40,24 @@ h1 {
 }
 
 h2 {
-    font-size: 24px;
+    font-size: 30px;
     font-weight: 500;
     line-height: 1.3;
     margin: 0;
     color: #fff;
+    position: relative;
+
+    .number {
+        position: absolute;
+        left: -44px;
+        width: 36px;
+        text-align: right;
+        color: $color-grey20;
+    }
 }
 
 h3 {
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 500;
     line-height: 1.3;
     margin: 0;
@@ -57,12 +67,22 @@ h3 {
 p {
     margin: 0;
     padding: 0;
+
+    code {
+        padding: 4px 8px;
+        margin: 0 2px;
+        color: #fff;
+    }
 }
 
 a {
     color: $color-grey10;
     cursor: default;
     text-decoration: none;
+
+    &[href] {
+        cursor: pointer;
+    }
 
     &:hover {
         color: #fff;
@@ -73,7 +93,7 @@ small {
     font-size: 11px;
     text-transform: uppercase;
     font-weight: 500;
-    letter-spacing: 1.1px;
+    letter-spacing: 1px;
 }
 
 code {
@@ -87,7 +107,7 @@ code {
         color: #fff;
     }
 
-    .gray {
+    .grey {
         color: $color-grey20;
     }
 
@@ -412,6 +432,7 @@ section + section {
         justify-content: space-between;
         margin-bottom: 6px;
         width: 100%;
+        color: $color-grey30;
 
         a {
             opacity: .4;

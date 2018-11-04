@@ -24,8 +24,8 @@ const Usage = () => (
             <section className="desc">
                 <h2>Using the React component</h2>
                 <p>
-                    Web Components are a simple and performant way to include Figicons on your site. Each icon is dynamically loaded into
-                    its component and comes with support for attribute overrides.
+                    The <code>Figicon</code> React component renders a specific icon based on its <code>name</code> prop. Additional inline
+                    props added to the component will override and attributes that are set.
                 </p>
 
                 <h3>Installation</h3>
@@ -33,20 +33,20 @@ const Usage = () => (
                 <div className="snippet">
                     <small>NPM</small>
                     <code className="white">
-                        <span className="gray">$</span> npm install figicons
+                        <span className="grey">$</span> npm install figicons
                     </code>
                 </div>
                 <div className="snippet">
                     <small>Yarn</small>
                     <code className="white">
-                        <span className="gray">$</span> yarn add figicons
+                        <span className="grey">$</span> yarn add figicons
                     </code>
                 </div>
 
                 <h3>Markup</h3>
                 <p>
-                    Import Figicons, then use the basic component where the name attribute is required, or override certain attributes
-                    inline with the component as props:
+                    Import Figicons, then use the basic component where the <code>name</code> attribute is required, or override certain
+                    attributes inline with the component as props:
                 </p>
                 <div className="snippet">
                     <small>JS</small>
@@ -70,7 +70,10 @@ const Usage = () => (
                 </p>
 
                 <h3>Installation</h3>
-                <p>Add the following Script tag, linking to the Figicon Web Component CDN, to the Head of your markup:</p>
+                <p>
+                    Add a <code>script</code> tag to the <code>&lt;head /&gt;</code> of your markup which points to the CDN or relative path
+                    of the Figicon Web Component:
+                </p>
                 <div className="snippet">
                     <small>
                         HTML <span>cdn</span>
@@ -85,7 +88,9 @@ const Usage = () => (
                 </div>
 
                 <h3>Markup</h3>
-                <p>Use the basic component where the name attribute is required, or override certain attributes:</p>
+                <p>
+                    Use the basic component where the <code>name</code> attribute is required, or override certain attributes:
+                </p>
                 <div className="snippet">
                     <small>Basic Usage</small>
                     <Highlight className="html">{'<fig-icon name="heart"></fig-icon>'}</Highlight>
