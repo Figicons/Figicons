@@ -16,7 +16,7 @@ const Usage = () => (
 
             <div className="alert dark">
                 <span>
-                    <Figicon name="lightbulb" className="mr2" /> Skip this tutorial if you intend to use the default Figicons set
+                    <Figicon name="lightbulb" className="mr2" /> Skip this tutorial if you wish to use the default Figicons set only
                 </span>
                 <Figicon name="arrow-right" />
             </div>
@@ -58,7 +58,7 @@ const Usage = () => (
                 <p>
                     Figicons ship with a default setup for how SVG icons will be rendered. Each property will be added as an attribute to
                     the component that'll be created. Now is the time to add the style to your icons (these properties can be overriden
-                    later on).
+                    later on within the component).
                 </p>
                 <div className="snippet">
                     <small>iconAttributes.json</small>

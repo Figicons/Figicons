@@ -2,7 +2,7 @@ $color-primary: #17EF95;
 $color-grey100: #1a1a1a;
 $color-grey60: #212121;
 $color-grey40: #393939;
-$color-grey20: #999;
+$color-grey20: #A2A2A2;
 $color-grey10: #ccc;
 
 @import url("https://fast.fonts.net/cssapi/401a279a-dbd2-44ae-ba21-6b71d85f4a9c.css");
@@ -73,7 +73,7 @@ small {
     font-size: 11px;
     text-transform: uppercase;
     font-weight: 500;
-    letter-spacing: 1px;
+    letter-spacing: 1.1px;
 }
 
 code {
@@ -196,6 +196,10 @@ section.desc {
 
     p + .snippet {
         margin-top: 16px;
+    }
+
+    p + p {
+        margin-top: 8px;
     }
 
     p + h3 {

@@ -1,13 +1,14 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import logotype from '../assets/logotype.svg';
+import * as pkg from '../../package.json';
 
 const Nav = () => (
     <nav>
         <div className="mw8 center">
             <Link to={'/'} className="logo">
                 <img src={logotype} height="22" />
-                <code className="tiny">1.0.0</code>
+                <code className="tiny">{pkg.version}</code>
             </Link>
             <div className="options">
                 <Link to={'/getting-started'}>Building custom icons</Link>
