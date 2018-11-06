@@ -174,28 +174,22 @@ nav {
     content: ' ';
     width: 100vw;
     height: 600px;
-    background-size: 40%;
+    background-size: 60%;
     background-position: center center;
     display: flex;
     z-index: -1;
-    animation: scroll linear infinite 36000ms;
+    animation: scroll linear infinite 48000ms;
 
-    &:before, &:after {
+    &:before {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         display: block;
         content: ' ';
-        height: 300px;
+        height: 100%;
         z-index: 1;
-        background: linear-gradient(to bottom, $color-grey60, rgba($color-grey60, 0));
-    }
-
-    &:after {
-        top: auto;
-        bottom: 0;
-        background: linear-gradient(to top, $color-grey60, rgba($color-grey60, 0));
+        background: radial-gradient(rgba($color-grey60, 0), $color-grey60 60%);
     }
 }
 
