@@ -3,7 +3,7 @@ const fs = require('fs');
 const figmaConfig = require('./figmaAPI.json');
 
 const getImages = async icons => {
-    const perChunk = 30;
+    const perChunk = 24;
     const iconMap = {};
     const frameChunks = icons.reduce((chunks, icon, i) => {
         const chunkIndex = Math.floor(i / perChunk);
