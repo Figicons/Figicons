@@ -159,6 +159,46 @@ nav {
     }
 }
 
+@keyframes scroll {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 -600px;
+    }
+}
+
+.bg {
+    position: absolute;
+    content: ' ';
+    width: 100vw;
+    height: 600px;
+    background-size: 40%;
+    background-position: center center;
+    display: flex;
+    z-index: -1;
+    animation: scroll linear infinite 36000ms;
+
+    &:before, &:after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: block;
+        content: ' ';
+        height: 300px;
+        z-index: 1;
+        background: linear-gradient(to bottom, $color-grey60, rgba($color-grey60, 0));
+    }
+
+    &:after {
+        top: auto;
+        bottom: 0;
+        background: linear-gradient(to top, $color-grey60, rgba($color-grey60, 0));
+    }
+}
+
 .alert {
     display: flex;
     justify-content: space-between;
@@ -295,7 +335,7 @@ main {
 }
 
 .info {
-    padding: 144px 0 48px 0;
+    padding: 112px 0 48px 0;
 }
 
 .buttons {

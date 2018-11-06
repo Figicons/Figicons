@@ -2,9 +2,11 @@ import * as React from 'react';
 import Figicon from '../reactcomponent/Figicon';
 import * as figicons from '../../figicons.json';
 import { Link } from 'react-router-dom';
+import bg from '../assets/bg.svg';
 
 const Home = () => (
     <React.Fragment>
+        <div className="bg" style={{ backgroundImage: `url(${bg})` }} />
         <main className="mw7 center tc">
             <h1 className="mb3">Design &amp; use your icons in minutes. No fuss.</h1>
             <p className="large">
