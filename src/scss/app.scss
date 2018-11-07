@@ -1,4 +1,5 @@
-$color-primary: #17EF95;
+$color-primary: #00FFB2;
+$color-primary-invert: #052B30;
 $color-grey100: #1a1a1a;
 $color-grey60: #212121;
 $color-grey40: #393939;
@@ -371,7 +372,7 @@ main {
     font-weight: 500;
     letter-spacing: 1.2px;
     padding: 14px 24px;
-    color: $color-grey60;
+    color: $color-primary-invert;
     background-color: $color-primary;
     border-radius: 4px;
     width: fit-content;
