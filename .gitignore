@@ -2,7 +2,5 @@ node_modules
 build
 dist
 extract
-.cache
 figmaAPI.json
 fetch.go
-*.woff2
