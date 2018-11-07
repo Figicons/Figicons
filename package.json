@@ -1,13 +1,10 @@
 {
   "name": "figcons",
   "version": "1.0.1",
-  "main": "index.js",
   "author": "Stefan Mansson <st.mansson@icloud.com>",
   "license": "MIT",
   "private": false,
   "scripts": {
-    "start": "parcel ./src/index.html",
-    "deploy": "rimraf ./build && parcel build ./src/index.html -d ./build --no-source-maps && cp _redirects ./build/_redirects && netlify deploy ./dist",
     "build": "sh ./build.sh",
     "bundle": "webpack",
     "clean": "svgo --quiet --config=./svgo.yml -f ./svgs -o ./svgs",
