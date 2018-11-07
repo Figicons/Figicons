@@ -1,6 +1,6 @@
 import '@webcomponents/custom-elements/custom-elements.min.js';
-import * as figicons from '../../figicons.json';
-import * as iconAttrs from '../iconAttributes.json';
+import * as figicons from '../figicons.json';
+import * as iconAttrs from '../configs/iconAttributes.json';
 
 interface AttributeOverride {
     size?: string;

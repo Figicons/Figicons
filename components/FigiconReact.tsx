@@ -1,7 +1,7 @@
 import * as React from 'react';
-import * as figicons from '../../figicons.json';
-import * as iconAttrs from '../iconAttributes.json';
-const camelCase = require('camelcase');
+import * as camelCase from 'camelcase';
+import * as figicons from '../figicons.json';
+import * as iconAttrs from '../configs/iconAttributes.json';
 
 interface Props {
     name: string;

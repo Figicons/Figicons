@@ -3,11 +3,11 @@ const path = require('path');
 module.exports = {
     mode: 'production',
     entry: {
-        'figicons.webcomponent': path.join(__dirname, 'src/webcomponent/Figicon.ts'),
+        webcomponent: path.join(__dirname, './components/FigiconWebComponent.ts'),
     },
     devtool: 'none',
     output: {
-        path: path.join(__dirname, 'extract'),
+        path: path.join(__dirname, 'bundle'),
         filename: '[name].js',
     },
     module: {

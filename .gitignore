@@ -1,6 +1,4 @@
 node_modules
-build
-dist
-extract
+bundle
 figmaAPI.json
 fetch.go
