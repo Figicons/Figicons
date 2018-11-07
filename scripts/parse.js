@@ -4,10 +4,10 @@ const parse = require('parse5');
 const cheerio = require('cheerio');
 
 function readFiles() {
-    const filenames = fs.readdirSync('./svgs');
+    const filenames = fs.readdirSync('./icons');
     const promises = filenames.map(function(filename) {
         return new Promise(resolve => {
-            fs.readFile('./svgs/' + filename, 'utf-8', function(err, content) {
+            fs.readFile('./icons/' + filename, 'utf-8', function(err, content) {
                 const $ = cheerio.load(content);
                 const inner = $('svg');
 

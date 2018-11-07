@@ -1,6 +1,6 @@
 const request = require('request');
 const fs = require('fs');
-const figmaConfig = require('./figmaAPI.json');
+const figmaConfig = require('../configs/figmaAPI.json');
 
 const getImages = async icons => {
     const perChunk = 24;
@@ -34,13 +34,11 @@ const getImages = async icons => {
 };
 
 const parseSVG = (images, iconMap) => {
-    Object.entries(iconMap).forEach(([key, icon]) => {
-        parseIcon(images[key], icon.name);
-    });
+    Object.entries(iconMap).forEach(([key, icon]) => parseIcon(images[key], icon.name));
 };
 
 const parseIcon = (url, name) => {
-    request.get(url).pipe(fs.createWriteStream(`svgs/${name}.svg`));
+    request.get(url).pipe(fs.createWriteStream(`icons/${name}.svg`));
 };
 
 const fetchUrl = url => {
@@ -55,8 +53,7 @@ const fetchUrl = url => {
     return new Promise((resolve, reject) => {
         request(options, (error, response, body) => {
             if (!error && response.statusCode == 200) {
-                const data = JSON.parse(body);
-                resolve(data);
+                resolve(JSON.parse(body));
             }
         });
     });
@@ -64,9 +61,7 @@ const fetchUrl = url => {
 
 try {
     fetchUrl(`files/${figmaConfig.fileKey}`).then(data => {
-        const icons = data.document.children[0].children;
-
-        getImages(icons);
+        getImages(data.document.children[0].children);
     });
 } catch (e) {
     console.log('Something went wrong with the request', e, e.message);
