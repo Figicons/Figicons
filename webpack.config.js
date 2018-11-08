@@ -3,11 +3,14 @@ const path = require('path');
 module.exports = {
     mode: 'production',
     entry: {
-        webcomponent: path.join(__dirname, './components/FigiconWebComponent.ts'),
+        WebComponent: path.join(__dirname, './components/FigiconWebComponent.ts'),
+        ReactComponent: path.join(__dirname, './components/FigiconReact.tsx'),
     },
     devtool: 'none',
     output: {
-        path: path.join(__dirname, 'bundle'),
+        library: 'Figicons',
+        libraryTarget: 'umd',
+        path: path.join(__dirname, 'umd'),
         filename: '[name].js',
     },
     module: {

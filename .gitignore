@@ -1,4 +1,4 @@
 node_modules
-bundle
+umd
 figmaAPI.json
 fetch.go
