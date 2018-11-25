@@ -1,7 +1,5 @@
 # Figicons
 
-## About Figicons
-
 Figicons is an open-source SVG icon set containing over 150+ icons designed on a 24px grid in Figma. Custom icons that are designed in Figma can also be used. Figicons provides the right tooling to easily fetch, parse & optimize such icons in minutes.
 
 [View all 150+ icons](https://figicons.com)
