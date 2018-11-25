@@ -12,6 +12,10 @@ The Figicons source is open in Figma, [check them out](https://www.figma.com/fil
 
 ###### Figicons is not affiliated with Figma in any way
 
+## Building your own custom icons
+
+[Check the full documentation](https://figicons.com/building-icons)
+
 ## Installation
 #### CDN 
 
@@ -39,6 +43,8 @@ Or to use the **Web Component**, use the `fig-icon` Web Component like so:
 ```html
 <fig-icon name="heart"></fig-icon>
 ```
+
+[Check the full documentation on Usage](https://figicons.com/usage)
 
 ## Contributing guidelines
 
