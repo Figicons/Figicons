@@ -14,6 +14,8 @@ The Figicons source is open in Figma, [check them out](https://www.figma.com/fil
 
 ## Building your own custom icons
 
+Figicons was built from the ground up with support for your own Figma-designed custom icons. In just a few steps you can create your own React & Web components. 
+
 [Check the full documentation](https://figicons.com/building-icons)
 
 ## Installation
