@@ -6,6 +6,12 @@ Figicons is an open-source SVG icon set containing over 150+ icons designed on a
 
 [View all 150+ icons](https://figicons.io)
 
+## Designed in Figma
+
+The Figicons source is open in Figma, [check them out](https://www.figma.com/file/eIOdDEWeiHETuccK5xpfNhEc/Icons) and feel free to create issues for suggestions on the default icons.
+
+###### Figicons is not affiliated with Figma in any way
+
 ## Installation
 #### CDN 
 
