@@ -369,6 +369,11 @@
     "file": "git-pull-request.svg",
     "content": "<circle cx=\"6\" cy=\"19\" r=\"3\" stroke=\"currentColor\"></circle><circle cx=\"6\" cy=\"5\" r=\"3\" stroke=\"currentColor\"></circle><circle cx=\"18\" cy=\"19\" r=\"3\" stroke=\"currentColor\"></circle><path stroke=\"currentColor\" d=\"M6 16V8\"></path><path stroke=\"currentColor\" d=\"M18 16V7a2 2 0 0 0-2-2h-3\"></path>"
   },
+  "grid-add": {
+    "name": "grid-add",
+    "file": "grid-add.svg",
+    "content": "<rect width=\"6\" height=\"6\" x=\"14\" y=\"14\" stroke=\"currentColor\" rx=\"1\"></rect><rect width=\"6\" height=\"6\" x=\"4\" y=\"14\" stroke=\"currentColor\" rx=\"1\"></rect><rect width=\"6\" height=\"6\" x=\"4\" y=\"4\" stroke=\"currentColor\" rx=\"1\"></rect><path stroke=\"currentColor\" d=\"M17 10V4\"></path><path stroke=\"currentColor\" d=\"M14 7h6\"></path>"
+  },
   "grid": {
     "name": "grid",
     "file": "grid.svg",
@@ -607,7 +612,7 @@
   "play-circle": {
     "name": "play-circle",
     "file": "play-circle.svg",
-    "content": "<path stroke=\"currentColor\" d=\"M9.5 15.826V8.174a1 1 0 0 1 1.65-.759l4.464 3.826a1 1 0 0 1 0 1.518l-4.463 3.826a1 1 0 0 1-1.651-.76z\"></path><circle cx=\"12\" cy=\"12\" r=\"10\" stroke=\"currentColor\"></circle>"
+    "content": "<path stroke=\"currentColor\" d=\"M9 15.196V8.804a1 1 0 0 1 1.53-.848l5.113 3.196a1 1 0 0 1 0 1.696l-5.113 3.196A1 1 0 0 1 9 15.196z\"></path><circle cx=\"12\" cy=\"12\" r=\"10\" stroke=\"currentColor\"></circle>"
   },
   "play": {
     "name": "play",
