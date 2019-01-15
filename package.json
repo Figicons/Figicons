@@ -12,6 +12,9 @@
   "files": [
     "umd"
   ],
+  "bin": {
+    "figicons": "./index.ts"
+  },
   "scripts": {
     "build": "sh ./build.sh",
     "bundle": "webpack",
