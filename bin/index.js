@@ -17,8 +17,8 @@ program
     .option('-T, --token', 'Figma account token')
     .action(function(env, options) {
         co(function*() {
-            const key = yield prompt('Figma File key: ');
-            const token = yield prompt('Figma Personal Access Token: ');
+            const key = yield prompt('Enter your Figma File key: ');
+            const token = yield prompt('Enter your Figma Personal Access Token: ');
             console.log('key: %s token: %s', key, token);
 
             fetch(key, token);

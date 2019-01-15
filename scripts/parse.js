@@ -1,13 +1,14 @@
 const path = require('path');
 const fs = require('fs');
-const parse = require('parse5');
 const cheerio = require('cheerio');
+const parse = require('parse5');
+const dir = './icons';
 
 function readFiles() {
-    const filenames = fs.readdirSync('./icons');
+    const filenames = fs.readdirSync(dir);
     const promises = filenames.map(function(filename) {
         return new Promise(resolve => {
-            fs.readFile('./icons/' + filename, 'utf-8', function(err, content) {
+            fs.readFile(path.join(dir, filename), 'utf-8', function(err, content) {
                 const $ = cheerio.load(content);
                 const inner = $('svg');
 
@@ -27,16 +28,22 @@ function readFiles() {
     return Promise.all(promises);
 }
 
-readFiles().then(data => {
-    const figicons = data.reduce((ob, icon) => {
-        ob[icon.name] = {
-            name: icon.name,
-            file: icon.file,
-            content: icon.content,
-        };
+function parseIcons() {
+    readFiles().then(data => {
+        const figicons = data.reduce((ob, icon) => {
+            ob[icon.name] = {
+                name: icon.name,
+                file: icon.file,
+                content: icon.content,
+            };
 
-        return ob;
-    }, {});
+            return ob;
+        }, {});
 
-    fs.writeFile('./figicons.json', JSON.stringify(figicons, null, 2), 'utf-8', () => {});
-});
+        fs.writeFile('./figicons.json', JSON.stringify(figicons, null, 2), 'utf-8', () => {
+            console.log('Parsing complete.');
+        });
+    });
+}
+
+module.exports = parseIcons;

@@ -1,5 +1,8 @@
 const request = require('request');
 const fs = require('fs');
+const path = require('path');
+const parse = require('./parse');
+const dir = './icons';
 
 function fetch(fileKey, token) {
     const getImages = async icons => {
@@ -19,27 +22,51 @@ function fetch(fileKey, token) {
             return chunks;
         }, []);
 
-        const chunkPromises = frameChunks.map(frameChunk => {
-            return fetchUrl(`images/${fileKey}?ids=${frameChunk.join(',')}&format=svg`);
+        const chunkPromises = frameChunks.map((frameChunk, i) => {
+            const prom = fetchUrl(`images/${fileKey}?ids=${frameChunk.join(',')}&format=svg`);
+            prom.then(() => console.log(`Completed chunk ${i}`));
+
+            return prom;
         });
 
         const res = await Promise.all(chunkPromises);
+        console.log('Fetched all icons from Figma, parsing them...');
+
         let images = {};
 
         res.filter(e => e.images).forEach(e => {
             images = { ...images, ...e.images };
         });
 
-        parseSVG(images, iconMap);
+        if (!fs.existsSync(dir)) {
+            fs.mkdirSync(dir);
+        }
+
+        Promise.all(fetchIcons(images, iconMap))
+            .then(parse)
+            .catch(error => console.log(error));
     };
 
-    const parseSVG = (images, iconMap) => {
-        Object.entries(iconMap).forEach(([key, icon]) => parseIcon(images[key], icon.name));
+    const fetchIcons = (images, iconMap) => {
+        return Object.entries(iconMap).map(([key, icon]) => {
+            const stream = fetchStream(images[key]);
+
+            stream.pipe(fs.createWriteStream(path.join(dir, `${icon.name}.svg`)));
+
+            return streamToPromise(stream);
+        });
     };
 
-    const parseIcon = (url, name) => {
-        request.get(url).pipe(fs.createWriteStream(`icons/${name}.svg`));
+    const fetchStream = url => {
+        return request.get(url);
     };
+
+    function streamToPromise(stream) {
+        return new Promise(function(resolve, reject) {
+            stream.on('end', resolve);
+            stream.on('error', reject);
+        });
+    }
 
     const fetchUrl = url => {
         const options = {
@@ -52,7 +79,6 @@ function fetch(fileKey, token) {
 
         return new Promise((resolve, reject) => {
             request(options, (error, response, body) => {
-                console.log(error, response.statusCode);
                 switch (response.statusCode) {
                     case 200:
                         return resolve(JSON.parse(body));
@@ -60,7 +86,7 @@ function fetch(fileKey, token) {
                     case 403:
                         return reject({
                             code: response.statusCode,
-                            message: "Error fetching icons from Figma. Maybe you're unauthorized?",
+                            message: "Error fetching from Figma. Maybe you're unauthorized?",
                         });
                     default:
                         return reject({ code: response.statusCode, message: 'Something went wrong with the request.' });
