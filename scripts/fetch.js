@@ -52,18 +52,31 @@ function fetch(fileKey, token) {
 
         return new Promise((resolve, reject) => {
             request(options, (error, response, body) => {
-                console.log('error', error, response.statusCode);
-                if (!error && response.statusCode == 200) {
-                    resolve(JSON.parse(body));
+                console.log(error, response.statusCode);
+                switch (response.statusCode) {
+                    case 200:
+                        return resolve(JSON.parse(body));
+                    case 400:
+                    case 403:
+                        return reject({
+                            code: response.statusCode,
+                            message: "Error fetching icons from Figma. Maybe you're unauthorized?",
+                        });
+                    default:
+                        return reject({ code: response.statusCode, message: 'Something went wrong with the request.' });
                 }
             });
         });
     };
 
     try {
-        fetchUrl(`files/${fileKey}`).then(data => {
-            getImages(data.document.children[0].children);
-        });
+        fetchUrl(`files/${fileKey}`)
+            .then(data => {
+                getImages(data.document.children[0].children);
+            })
+            .catch(error => {
+                console.log(error.code, error.message);
+            });
     } catch (e) {
         console.log('Something went wrong with the request', e, e.message);
     }
