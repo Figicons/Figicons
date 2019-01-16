@@ -13,10 +13,7 @@ async function run() {
 
     const allKeys = await keyStore.keys();
 
-    const keysList =
-        allKeys.length > 0
-            ? [...allKeys, new inquirer.Separator()]
-            : [{ name: 'No saved project found', disabled: 'Create a new one below' }, new inquirer.Separator()];
+    const keysList = allKeys.length > 0 ? allKeys : [{ name: 'No saved project found', disabled: 'Create a new one below' }];
 
     program
         .name('figicons')
@@ -30,7 +27,7 @@ async function run() {
                         type: 'list',
                         name: 'selectedKey',
                         message: 'Select a saved Figma project, or a create new one',
-                        choices: [...keysList, 'Create new'],
+                        choices: [...keysList, new inquirer.Separator(), 'Create new'],
                     },
                     {
                         type: 'input',
