@@ -67,14 +67,6 @@ async function run() {
 
                     console.log(JSON.stringify(answers, null, '  '));
                 });
-
-            // co(function*() {
-            //     const key = yield prompt('Enter your Figma File key: ');
-            //     const token = yield prompt('Enter your Figma Personal Access Token: ');
-            //     console.log('key: %s token: %s', key, token);
-
-            //     fetch(key, token);
-            // });
         })
         .parse(process.argv);
 }
