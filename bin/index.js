@@ -13,6 +13,8 @@ async function run() {
 
     const allKeys = await keyStore.keys();
 
+    await keyStore.setItem('eIOdDEWeiHETuccK5xpfNhEc', '6742-59554322-f562-4177-8848-f7125dce459a');
+
     const keysList = allKeys.length > 0 ? allKeys : [{ name: 'No saved project found', disabled: 'Create a new one below' }];
 
     program

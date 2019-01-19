@@ -1,7 +1,7 @@
 const request = require('request');
 const fs = require('fs');
 const path = require('path');
-const parse = require('./parse');
+const Parser = require('./Parser');
 const dir = './icons';
 
 function fetch(fileKey, token) {
@@ -42,9 +42,12 @@ function fetch(fileKey, token) {
             fs.mkdirSync(dir);
         }
 
-        Promise.all(fetchIcons(images, iconMap))
-            .then(parse)
-            .catch(error => console.log(error));
+        try {
+            await Promise.all(fetchIcons(images, iconMap));
+            Parser.parse();
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     const fetchIcons = (images, iconMap) => {
