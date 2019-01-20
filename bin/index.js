@@ -14,7 +14,9 @@ let timer = 0;
 const ui = new inquirer.ui.BottomBar();
 
 async function run() {
+    const parser = new Parser();
     const keyStore = storage.create({ dir: keyStoreDir });
+
     await keyStore.init();
 
     const keys = await keyStore.keys();
@@ -75,6 +77,7 @@ async function run() {
                     } else {
                         const { token: selectedToken } = await keyStore.getItem(selectedKey);
                         config.key = selectedKey;
+                        config.token = selectedToken;
                     }
 
                     const fetcher = new Fetcher({
@@ -89,7 +92,7 @@ async function run() {
                     try {
                         const figmaData = await fetcher.request(`files/${config.key}`);
                         await fetcher.grabImageData(figmaData.document.children[0].children);
-                        await Parser.parse();
+                        await parser.parse();
                         await keyStore.setItem(config.key, {
                             name: figmaData.name,
                             token: config.token,

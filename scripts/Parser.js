@@ -2,6 +2,8 @@ const path = require('path');
 const fs = require('fs');
 const cheerio = require('cheerio');
 const parse = require('parse5');
+const SVGO = require('svgo');
+const svgoConfig = require('../configs/svgo.json');
 const dir = './icons';
 
 class Parser {
@@ -11,9 +13,10 @@ class Parser {
         }
     ) {
         this.debugMode = o.debugMode;
+        this.svgo = new SVGO(svgoConfig);
     }
 
-    static readIcons() {
+    readIcons() {
         console.log('reading files');
 
         const filenames = fs.readdirSync(dir);
@@ -39,9 +42,28 @@ class Parser {
         return Promise.all(promises);
     }
 
-    static async parse() {
-        const iconData = await Parser.readIcons();
-        console.log('parsing files');
+    async cleanIcons() {
+        const svgo = this.svgo;
+        const filenames = fs.readdirSync(dir);
+        const promises = filenames.map(function(filename) {
+            return new Promise(resolve => {
+                const iconPath = path.join(dir, filename);
+                const iconData = fs.readFileSync(iconPath, 'utf-8');
+                svgo.optimize(iconData, { path: iconPath }).then(({ data }) => {
+                    fs.writeFile(iconPath, data, resolve);
+                });
+            });
+        });
+
+        return Promise.all(promises);
+    }
+
+    async parse() {
+        const iconData = await this.readIcons();
+
+        console.log('cleaning files');
+        await this.cleanIcons();
+        console.log('cleaned files');
 
         const icons = iconData.reduce((ob, icon) => {
             ob[icon.name] = {
