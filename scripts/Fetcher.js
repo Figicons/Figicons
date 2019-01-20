@@ -58,12 +58,7 @@ class Fetcher {
             fs.mkdirSync(dir);
         }
 
-        try {
-            await Promise.all(this.grabImageFiles(images, iconMap));
-            Parser.parse();
-        } catch (error) {
-            console.log(error);
-        }
+        return Promise.all(this.grabImageFiles(images, iconMap));
     }
 
     grabImageFiles(images, iconMap) {

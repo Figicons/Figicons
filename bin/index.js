@@ -3,8 +3,8 @@
 const program = require('commander');
 const inquirer = require('inquirer');
 const Fetcher = require('../scripts/Fetcher');
+const Parser = require('../scripts/Parser');
 const storage = require('node-persist');
-const fetch = require('../scripts/Fetcher');
 const package = require('../package.json');
 const keyStoreDir = './bin/store/keyStore';
 
@@ -73,13 +73,9 @@ async function run() {
                         config.key = key;
                         config.token = token;
                     } else {
-                        const savedData = await keyStore.getItem(selectedKey);
-                        console.log(savedData);
+                        const { token: selectedToken } = await keyStore.getItem(selectedKey);
                         config.key = selectedKey;
-                        config.token = savedData.token;
                     }
-
-                    console.log(config);
 
                     const fetcher = new Fetcher({
                         key: config.key,
@@ -90,20 +86,19 @@ async function run() {
                         ui.updateBottomBar(loader[i++ % 4]);
                     }, 300);
 
-                    fetcher
-                        .request(`files/${config.key}`)
-                        .then(figmaData => {
-                            fetcher.grabImageData(figmaData.document.children[0].children);
-                            keyStore.setItem(config.key, {
-                                name: figmaData.name,
-                                token: config.token,
-                            });
-                            ui.updateBottomBar('Getting data');
-                            clearInterval(timer);
-                        })
-                        .catch(error => {
-                            console.log(error.code, error.message);
+                    try {
+                        const figmaData = await fetcher.request(`files/${config.key}`);
+                        await fetcher.grabImageData(figmaData.document.children[0].children);
+                        await Parser.parse();
+                        await keyStore.setItem(config.key, {
+                            name: figmaData.name,
+                            token: config.token,
                         });
+                        ui.updateBottomBar('Getting data');
+                        clearInterval(timer);
+                    } catch (error) {
+                        console.log(error.code, error.message);
+                    }
 
                     console.log(JSON.stringify(answers, null, '  '));
                 });
