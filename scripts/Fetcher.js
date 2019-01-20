@@ -40,14 +40,12 @@ class Fetcher {
 
         const chunkPromises = frameChunks.map((frameChunk, i) => {
             const prom = this.request(`images/${this.key}?ids=${frameChunk.join(',')}&format=svg`);
-            prom.then(() => console.log(`Completed chunk ${i}`));
+            // prom.then(() => console.log(`Completed chunk ${i}`));
 
             return prom;
         });
 
         const res = await Promise.all(chunkPromises);
-        console.log('Fetched all icons from Figma, parsing them...');
-
         let images = {};
 
         res.filter(e => e.images).forEach(e => {
@@ -80,8 +78,6 @@ class Fetcher {
             },
         };
 
-        console.log(options);
-
         return new Promise((resolve, reject) => {
             request(options, (error, response, body) => {
                 switch (response.statusCode) {
@@ -94,7 +90,6 @@ class Fetcher {
                             message: "Error fetching from Figma. Maybe you're unauthorized?",
                         });
                     default:
-                        console.log(response);
                         return reject({ code: response.statusCode, message: 'Something went wrong with the request.' });
                 }
             });

@@ -4,17 +4,14 @@ const program = require('commander');
 const inquirer = require('inquirer');
 const Fetcher = require('../scripts/Fetcher');
 const Parser = require('../scripts/Parser');
+const Messager = require('../scripts/Messager');
 const storage = require('node-persist');
 const package = require('../package.json');
 const keyStoreDir = './bin/store/keyStore';
 
-const loader = ['⠏ Fetching icons', '⠧ Fetching icons', '⠹ Fetching icons', '⠼ Fetching icons'];
-let i = 4;
-let timer = 0;
-const ui = new inquirer.ui.BottomBar();
-
 async function run() {
     const parser = new Parser();
+    const messager = new Messager();
     const keyStore = storage.create({ dir: keyStoreDir });
 
     await keyStore.init();
@@ -85,25 +82,29 @@ async function run() {
                         token: config.token,
                     });
 
-                    timer = setInterval(() => {
-                        ui.updateBottomBar(loader[i++ % 4]);
-                    }, 300);
-
                     try {
+                        messager.startLoading('Fetching icons from Figma');
                         const figmaData = await fetcher.request(`files/${config.key}`);
                         await fetcher.grabImageData(figmaData.document.children[0].children);
+                        messager.endLoading(`Fetched ${figmaData.document.children[0].children.length} icons from: ${figmaData.name}`);
+
+                        messager.startLoading('Cleaning & optimizing icons');
+                        await parser.clean();
+                        messager.endLoading(`Cleaned & optimized icons`);
+
+                        messager.startLoading('Parsing icons');
                         await parser.parse();
+                        messager.endLoading(`Parsed icons`);
+
                         await keyStore.setItem(config.key, {
                             name: figmaData.name,
                             token: config.token,
                         });
-                        ui.updateBottomBar('Getting data');
-                        clearInterval(timer);
                     } catch (error) {
-                        console.log(error.code, error.message);
+                        messager.log(error.message);
                     }
 
-                    console.log(JSON.stringify(answers, null, '  '));
+                    // console.log(JSON.stringify(answers, null, '  '));
                 });
         })
         .parse(process.argv);

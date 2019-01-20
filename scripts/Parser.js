@@ -16,9 +16,7 @@ class Parser {
         this.svgo = new SVGO(svgoConfig);
     }
 
-    readIcons() {
-        console.log('reading files');
-
+    async read() {
         const filenames = fs.readdirSync(dir);
         const promises = filenames.map(function(filename) {
             return new Promise(resolve => {
@@ -42,7 +40,7 @@ class Parser {
         return Promise.all(promises);
     }
 
-    async cleanIcons() {
+    async clean() {
         const svgo = this.svgo;
         const filenames = fs.readdirSync(dir);
         const promises = filenames.map(function(filename) {
@@ -59,12 +57,7 @@ class Parser {
     }
 
     async parse() {
-        const iconData = await this.readIcons();
-
-        console.log('cleaning files');
-        await this.cleanIcons();
-        console.log('cleaned files');
-
+        const iconData = await this.read();
         const icons = iconData.reduce((ob, icon) => {
             ob[icon.name] = {
                 name: icon.name,
@@ -75,9 +68,7 @@ class Parser {
             return ob;
         }, {});
 
-        fs.writeFile('./figicons.json', JSON.stringify(icons, null, 2), 'utf-8', () => {
-            console.log('Parsing complete.');
-        });
+        return fs.writeFileSync('./figicons.json', JSON.stringify(icons, null, 2), 'utf-8');
     }
 }
 
