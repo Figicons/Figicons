@@ -27,7 +27,7 @@ class Fetcher {
         const iconMap = {};
         const icons = figmaData.document.children[0].children;
 
-        Messager.startLoading(`✍️  Fetching ${icons.length} icons from Figma`);
+        Messager.startLoading(`🐕  Fetching ${icons.length} icons from Figma`);
 
         const frameChunks = icons.reduce((chunks, icon, i) => {
             const chunkIndex = Math.floor(i / perChunk);
@@ -63,7 +63,7 @@ class Fetcher {
 
         await Promise.all(this.grabImageFiles(images, iconMap));
 
-        Messager.endLoading(`👏  Got ${icons.length} icons from: ${figmaData.name}`);
+        Messager.endLoading(`👏  %s Got ${icons.length} icons from: ${figmaData.name}`, true);
     }
 
     grabImageFiles(images, iconMap) {
@@ -79,7 +79,7 @@ class Fetcher {
     async getFigmaProject(key) {
         Messager.startLoading(`🔎  Inspecting the file on Figma`);
         const figmaData = await this.request(`files/${key}`);
-        Messager.endLoading(`📗  Read project data from Figma`);
+        Messager.endLoading(`📗  %s Read project data from Figma`, true);
 
         return figmaData;
     }

@@ -59,13 +59,13 @@ class Parser {
 
         await Promise.all(promises);
 
-        Messager.endLoading(`🚀  Cleaned & optimized ${filenames.length} icons`);
+        Messager.endLoading(`🚀  %s Cleaned & optimized ${filenames.length} icons`);
     }
 
-    async parse() {
+    async bundle() {
         const iconData = await this.read();
 
-        Messager.startLoading(`🛠  Parsing ${iconData.length} icons`);
+        Messager.startLoading(`🛠  Bundling ${iconData.length} icons`);
 
         const icons = iconData.reduce((ob, icon) => {
             ob[icon.name] = {
@@ -79,7 +79,7 @@ class Parser {
 
         await fs.writeFileSync('./figicons.json', JSON.stringify(icons, null, 2), 'utf-8');
 
-        Messager.endLoading(`🛠  Parsed ${icons.length} icons`);
+        Messager.endLoading(`🍭   %s Bundled ${iconData.length} icons`);
     }
 }
 

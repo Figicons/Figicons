@@ -99,7 +99,7 @@ const keyStoreDir = './bin/store/keyStore';
 
             await fetcher.grabImageData(figmaData);
             await parser.clean();
-            await parser.parse();
+            await parser.bundle();
             await keyStore.setItem(config.key, {
                 name: figmaData.name,
                 token: config.token,

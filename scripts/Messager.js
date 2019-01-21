@@ -1,7 +1,9 @@
+const chalkPipe = require('chalk-pipe');
 const inquirer = require('inquirer');
 const ui = new inquirer.ui.BottomBar();
 let loadingTimer = 0;
 let startDate = 0;
+
 class Messager {
     static startLoading(str) {
         clearInterval(Messager.loadingTimer);
@@ -20,11 +22,15 @@ class Messager {
         ui.updateBottomBar('');
 
         if (str) {
-            Messager.log(`${str}.`);
+            Messager.log(`${str}.`, true);
         }
     }
 
-    static log(str) {
+    static log(str, success) {
+        if (success) {
+            str = str.replace('%s', chalkPipe('greenBright.bold')('success'));
+        }
+
         ui.log.write(str);
     }
 
