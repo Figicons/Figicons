@@ -74,7 +74,7 @@ const keyStoreDir = path.join(__dirname, './store');
             {
                 type: 'input',
                 name: 'token',
-                message: 'Enter a personal access token (leave blank if project is public)',
+                message: 'Enter a personal access token',
                 when: function(answers) {
                     return answers.selectedKey === 'Create new';
                 },

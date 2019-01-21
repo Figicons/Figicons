@@ -23,7 +23,7 @@ class Fetcher {
     }
 
     async grabImageData(figmaData) {
-        const perChunk = 24;
+        const perChunk = 20;
         const iconMap = {};
         const icons = figmaData.document.children[0].children;
 

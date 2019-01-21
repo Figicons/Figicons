@@ -77,7 +77,7 @@ class Parser {
         }, {});
 
         // Write to local json for components to read
-        await fs.writeFileSync('./figicons.json', JSON.stringify(icons, null, 2), 'utf-8');
+        await fs.writeFileSync(path.join(__dirname, '..', 'figicons.json'), JSON.stringify(icons, null, 2), 'utf-8');
 
         // Write to public json for user
         await fs.writeFileSync(FolderManager.dirs.iconsJson, JSON.stringify(icons, null, 2), 'utf-8');
