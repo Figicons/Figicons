@@ -79,7 +79,7 @@ class Parser {
 
         await fs.writeFileSync('./figicons.json', JSON.stringify(icons, null, 2), 'utf-8');
 
-        Messager.endLoading(`🍭   %s Bundled ${iconData.length} icons`);
+        Messager.endLoading(`🍭  %s Bundled ${iconData.length} icons`);
     }
 }
 

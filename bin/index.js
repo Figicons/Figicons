@@ -79,8 +79,10 @@ const keyStoreDir = './bin/store/keyStore';
         ]);
 
         let config = { key, token };
+        let isSaved = true;
 
         if (key && token) {
+            isSaved = false;
             config.key = key;
             config.token = token;
         } else {
@@ -97,13 +99,17 @@ const keyStoreDir = './bin/store/keyStore';
         try {
             const figmaData = await fetcher.getFigmaProject(config.key);
 
+            if (!isSaved) {
+                await keyStore.setItem(config.key, {
+                    name: figmaData.name,
+                    token: config.token,
+                });
+                Messager.log(`⏰  %s Saved project key to recents.`, true);
+            }
+
             await fetcher.grabImageData(figmaData);
             await parser.clean();
             await parser.bundle();
-            await keyStore.setItem(config.key, {
-                name: figmaData.name,
-                token: config.token,
-            });
         } catch (error) {
             Messager.log(error.message);
         }
