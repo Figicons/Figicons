@@ -1,6 +1,6 @@
 {
   "name": "figicons",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Stefan Mansson <st.mansson@icloud.com>",
   "repository": {
     "type": "git",
@@ -9,11 +9,12 @@
   "homepage": "https://figicons.com",
   "license": "MIT",
   "private": false,
-  "files": [
-    "umd"
-  ],
+
   "bin": {
-    "figicons": "./bin/index.js"
+    "figicons": "./bin/figicons.js"
+  },
+  "engines": {
+    "node": ">=8"
   },
   "scripts": {
     "build": "sh ./build.sh",

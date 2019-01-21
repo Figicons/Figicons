@@ -5,6 +5,7 @@ const inquirer = require('inquirer');
 const Fetcher = require('../scripts/Fetcher');
 const Parser = require('../scripts/Parser');
 const Messager = require('../scripts/Messager');
+const Packager = require('../scripts/Packager');
 const storage = require('node-persist');
 const package = require('../package.json');
 const keyStoreDir = './bin/store/keyStore';
@@ -110,6 +111,7 @@ const keyStoreDir = './bin/store/keyStore';
             await fetcher.grabImageData(figmaData);
             await parser.clean();
             await parser.bundle();
+            await Packager.package();
         } catch (error) {
             Messager.log(error.message);
         }
