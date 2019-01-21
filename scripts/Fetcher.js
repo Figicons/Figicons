@@ -2,6 +2,7 @@ const request = require('request');
 const fs = require('fs');
 const path = require('path');
 const Parser = require('./Parser');
+const Messager = require('./Messager');
 const dir = './icons';
 
 const fetchStream = url => {
@@ -21,9 +22,13 @@ class Fetcher {
         this.token = o.token;
     }
 
-    async grabImageData(icons) {
+    async grabImageData(figmaData) {
         const perChunk = 24;
         const iconMap = {};
+        const icons = figmaData.document.children[0].children;
+
+        Messager.startLoading(`✍️  Fetching ${icons.length} icons from Figma`);
+
         const frameChunks = icons.reduce((chunks, icon, i) => {
             const chunkIndex = Math.floor(i / perChunk);
 
@@ -56,7 +61,9 @@ class Fetcher {
             fs.mkdirSync(dir);
         }
 
-        return Promise.all(this.grabImageFiles(images, iconMap));
+        await Promise.all(this.grabImageFiles(images, iconMap));
+
+        Messager.endLoading(`👏  Got ${icons.length} icons from: ${figmaData.name}`);
     }
 
     grabImageFiles(images, iconMap) {
@@ -67,6 +74,14 @@ class Fetcher {
 
             return streamToPromise(stream);
         });
+    }
+
+    async getFigmaProject(key) {
+        Messager.startLoading(`🔎  Inspecting the file on Figma`);
+        const figmaData = await this.request(`files/${key}`);
+        Messager.endLoading(`📗  Read project data from Figma`);
+
+        return figmaData;
     }
 
     request(url) {

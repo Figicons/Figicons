@@ -22,12 +22,10 @@ const keyStoreDir = './bin/store/keyStore';
 
     program.command('clean').action(async function(cmd, options) {
         Messager.startCommand();
-        Messager.startLoading('Cleaning & optimizing icons');
         await parser.clean();
-        Messager.endLoading(`Cleaned & optimized icons`);
-        const t2 = Date.now();
         Messager.endCommand();
     });
+
     program.on('command:*', function() {
         console.error('Invalid command: %s\nSee --help for a list of available commands.', program.args.join(' '));
         process.exit(1);
@@ -36,6 +34,8 @@ const keyStoreDir = './bin/store/keyStore';
     program.parse(process.argv);
 
     if (program.args.length < 1) {
+        Messager.startCommand();
+
         const keys = await keyStore.keys();
         const values = await keyStore.values();
 
@@ -44,7 +44,7 @@ const keyStoreDir = './bin/store/keyStore';
             token: '6742-59554322-f562-4177-8848-f7125dce459a',
         });
 
-        const keysList =
+        const keyChoices =
             keys.length > 0
                 ? keys.reduce((a, k, i) => {
                       const val = values[i];
@@ -58,7 +58,7 @@ const keyStoreDir = './bin/store/keyStore';
                 type: 'list',
                 name: 'selectedKey',
                 message: 'Select a saved Figma project, or a create new one',
-                choices: [...keysList, new inquirer.Separator(), 'Create new'],
+                choices: [...keyChoices, new inquirer.Separator(), 'Create new'],
             },
             {
                 type: 'input',
@@ -95,20 +95,11 @@ const keyStoreDir = './bin/store/keyStore';
         });
 
         try {
-            const figmaData = await fetcher.request(`files/${config.key}`);
+            const figmaData = await fetcher.getFigmaProject(config.key);
 
-            Messager.startLoading('Fetching icons from Figma');
-            await fetcher.grabImageData(figmaData.document.children[0].children);
-            Messager.endLoading(`Fetched ${figmaData.document.children[0].children.length} icons from: ${figmaData.name}`);
-
-            Messager.startLoading('Cleaning & optimizing icons');
+            await fetcher.grabImageData(figmaData);
             await parser.clean();
-            Messager.endLoading(`Cleaned & optimized icons`);
-
-            Messager.startLoading('Parsing icons');
             await parser.parse();
-            Messager.endLoading(`Parsed icons`);
-
             await keyStore.setItem(config.key, {
                 name: figmaData.name,
                 token: config.token,
@@ -116,5 +107,7 @@ const keyStoreDir = './bin/store/keyStore';
         } catch (error) {
             Messager.log(error.message);
         }
+
+        Messager.endCommand();
     }
 })();

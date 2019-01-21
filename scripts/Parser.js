@@ -5,6 +5,7 @@ const parse = require('parse5');
 const SVGO = require('svgo');
 const svgoConfig = require('../configs/svgo.json');
 const dir = './icons';
+const Messager = require('./Messager');
 
 class Parser {
     constructor(
@@ -43,6 +44,9 @@ class Parser {
     async clean() {
         const svgo = this.svgo;
         const filenames = fs.readdirSync(dir);
+
+        Messager.startLoading(`🚀  Cleaning & optimizing ${filenames.length} icons`);
+
         const promises = filenames.map(function(filename) {
             return new Promise(resolve => {
                 const iconPath = path.join(dir, filename);
@@ -53,11 +57,16 @@ class Parser {
             });
         });
 
-        return Promise.all(promises);
+        await Promise.all(promises);
+
+        Messager.endLoading(`🚀  Cleaned & optimized ${filenames.length} icons`);
     }
 
     async parse() {
         const iconData = await this.read();
+
+        Messager.startLoading(`🛠  Parsing ${iconData.length} icons`);
+
         const icons = iconData.reduce((ob, icon) => {
             ob[icon.name] = {
                 name: icon.name,
@@ -68,7 +77,9 @@ class Parser {
             return ob;
         }, {});
 
-        return fs.writeFileSync('./figicons.json', JSON.stringify(icons, null, 2), 'utf-8');
+        await fs.writeFileSync('./figicons.json', JSON.stringify(icons, null, 2), 'utf-8');
+
+        Messager.endLoading(`🛠  Parsed ${icons.length} icons`);
     }
 }
 

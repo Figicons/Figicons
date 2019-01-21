@@ -6,12 +6,12 @@ class Messager {
     static startLoading(str) {
         clearInterval(Messager.loadingTimer);
 
-        const loader = [`⠏ ${str}`, `⠧ ${str}`, `⠹ ${str}`, `⠼ ${str}`, `⠧ ${str}`];
+        const loader = [`${str} ⠏`, `${str} ⠹`, `${str} ⠼`, `${str} ⠧`];
         const length = loader.length;
         let i = 0;
 
         Messager.loadingTimer = setInterval(() => {
-            ui.updateBottomBar(loader[i++ % length]);
+            ui.updateBottomBar(`${loader[i++ % length]}\n`);
         }, 300);
     }
 
@@ -20,7 +20,7 @@ class Messager {
         ui.updateBottomBar('');
 
         if (str) {
-            Messager.log(str);
+            Messager.log(`${str}.`);
         }
     }
 
@@ -34,7 +34,7 @@ class Messager {
 
     static endCommand() {
         const msTaken = Date.now() - Messager.startDate;
-        Messager.log(`Done in ${(msTaken / 1000).toFixed(2)}s`);
+        Messager.log(`⚡️  Done in ${(msTaken / 1000).toFixed(2)}s.`);
         process.exit(1);
     }
 }
