@@ -1,44 +1,40 @@
 const inquirer = require('inquirer');
-
+const ui = new inquirer.ui.BottomBar();
+let loadingTimer = 0;
+let startDate = 0;
 class Messager {
-    constructor() {
-        this.ui = new inquirer.ui.BottomBar();
-        this.loadingTimer = 0;
-        this.startDate = 0;
-    }
-
-    startLoading(str) {
-        clearInterval(this.loadingTimer);
+    static startLoading(str) {
+        clearInterval(Messager.loadingTimer);
 
         const loader = [`⠏ ${str}`, `⠧ ${str}`, `⠹ ${str}`, `⠼ ${str}`, `⠧ ${str}`];
         const length = loader.length;
         let i = 0;
 
-        this.loadingTimer = setInterval(() => {
-            this.ui.updateBottomBar(loader[i++ % length]);
+        Messager.loadingTimer = setInterval(() => {
+            ui.updateBottomBar(loader[i++ % length]);
         }, 300);
     }
 
-    endLoading(str) {
-        clearInterval(this.loadingTimer);
-        this.ui.updateBottomBar('');
+    static endLoading(str) {
+        clearInterval(Messager.loadingTimer);
+        ui.updateBottomBar('');
 
         if (str) {
-            this.log(str);
+            Messager.log(str);
         }
     }
 
-    log(str) {
-        this.ui.log.write(str);
+    static log(str) {
+        ui.log.write(str);
     }
 
-    startCommand() {
-        this.startDate = Date.now();
+    static startCommand() {
+        Messager.startDate = Date.now();
     }
 
-    endCommand() {
-        const msTaken = Date.now() - this.startDate;
-        this.log(`Done in ${(msTaken / 1000).toFixed(2)}s`);
+    static endCommand() {
+        const msTaken = Date.now() - Messager.startDate;
+        Messager.log(`Done in ${(msTaken / 1000).toFixed(2)}s`);
         process.exit(1);
     }
 }

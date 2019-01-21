@@ -11,7 +11,6 @@ const keyStoreDir = './bin/store/keyStore';
 
 (async function run() {
     const parser = new Parser();
-    const messager = new Messager();
     const keyStore = storage.create({ dir: keyStoreDir });
 
     await keyStore.init();
@@ -22,12 +21,12 @@ const keyStoreDir = './bin/store/keyStore';
         .option('-T, --token', 'Figma account token');
 
     program.command('clean').action(async function(cmd, options) {
-        messager.startCommand();
-        messager.startLoading('Cleaning & optimizing icons');
+        Messager.startCommand();
+        Messager.startLoading('Cleaning & optimizing icons');
         await parser.clean();
-        messager.endLoading(`Cleaned & optimized icons`);
+        Messager.endLoading(`Cleaned & optimized icons`);
         const t2 = Date.now();
-        messager.endCommand();
+        Messager.endCommand();
     });
     program.on('command:*', function() {
         console.error('Invalid command: %s\nSee --help for a list of available commands.', program.args.join(' '));
@@ -98,24 +97,24 @@ const keyStoreDir = './bin/store/keyStore';
         try {
             const figmaData = await fetcher.request(`files/${config.key}`);
 
-            messager.startLoading('Fetching icons from Figma');
+            Messager.startLoading('Fetching icons from Figma');
             await fetcher.grabImageData(figmaData.document.children[0].children);
-            messager.endLoading(`Fetched ${figmaData.document.children[0].children.length} icons from: ${figmaData.name}`);
+            Messager.endLoading(`Fetched ${figmaData.document.children[0].children.length} icons from: ${figmaData.name}`);
 
-            messager.startLoading('Cleaning & optimizing icons');
+            Messager.startLoading('Cleaning & optimizing icons');
             await parser.clean();
-            messager.endLoading(`Cleaned & optimized icons`);
+            Messager.endLoading(`Cleaned & optimized icons`);
 
-            messager.startLoading('Parsing icons');
+            Messager.startLoading('Parsing icons');
             await parser.parse();
-            messager.endLoading(`Parsed icons`);
+            Messager.endLoading(`Parsed icons`);
 
             await keyStore.setItem(config.key, {
                 name: figmaData.name,
                 token: config.token,
             });
         } catch (error) {
-            messager.log(error.message);
+            Messager.log(error.message);
         }
     }
 })();
