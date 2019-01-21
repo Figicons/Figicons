@@ -4,7 +4,6 @@ const cheerio = require('cheerio');
 const parse = require('parse5');
 const SVGO = require('svgo');
 const svgoConfig = require('../configs/svgo.json');
-const dir = './icons';
 const Messager = require('./Messager');
 
 class Parser {
@@ -13,15 +12,16 @@ class Parser {
             debugMode: false,
         }
     ) {
+        this.iconsDir = path.join(`./figicons/icons`);
         this.debugMode = o.debugMode;
         this.svgo = new SVGO(svgoConfig);
     }
 
     async read() {
-        const filenames = fs.readdirSync(dir);
-        const promises = filenames.map(function(filename) {
+        const filenames = fs.readdirSync(this.iconsDir);
+        const promises = filenames.map(filename => {
             return new Promise(resolve => {
-                fs.readFile(path.join(dir, filename), 'utf-8', function(err, content) {
+                fs.readFile(path.join(this.iconsDir, filename), 'utf-8', (err, content) => {
                     const $ = cheerio.load(content);
                     const inner = $('svg');
 
@@ -42,16 +42,15 @@ class Parser {
     }
 
     async clean() {
-        const svgo = this.svgo;
-        const filenames = fs.readdirSync(dir);
+        const filenames = fs.readdirSync(this.iconsDir);
 
         Messager.startLoading(`🚀  Cleaning & optimizing ${filenames.length} icons`);
 
-        const promises = filenames.map(function(filename) {
+        const promises = filenames.map(filename => {
             return new Promise(resolve => {
-                const iconPath = path.join(dir, filename);
+                const iconPath = path.join(this.iconsDir, filename);
                 const iconData = fs.readFileSync(iconPath, 'utf-8');
-                svgo.optimize(iconData, { path: iconPath }).then(({ data }) => {
+                this.svgo.optimize(iconData, { path: iconPath }).then(({ data }) => {
                     fs.writeFile(iconPath, data, resolve);
                 });
             });

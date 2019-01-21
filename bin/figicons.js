@@ -2,13 +2,16 @@
 
 const program = require('commander');
 const inquirer = require('inquirer');
+const path = require('path');
+const fs = require('fs');
 const Fetcher = require('../scripts/Fetcher');
 const Parser = require('../scripts/Parser');
 const Messager = require('../scripts/Messager');
 const Packager = require('../scripts/Packager');
+const FolderManager = require('../scripts/FolderManager');
 const storage = require('node-persist');
 const package = require('../package.json');
-const keyStoreDir = './bin/store/keyStore';
+const keyStoreDir = path.join(__dirname, './store');
 
 (async function run() {
     const parser = new Parser();
@@ -91,6 +94,8 @@ const keyStoreDir = './bin/store/keyStore';
             config.key = selectedKey;
             config.token = selectedToken;
         }
+
+        FolderManager.createDefault('figicons');
 
         const fetcher = new Fetcher({
             key: config.key,

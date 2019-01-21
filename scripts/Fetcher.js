@@ -3,7 +3,6 @@ const fs = require('fs');
 const path = require('path');
 const Parser = require('./Parser');
 const Messager = require('./Messager');
-const dir = './icons';
 
 const fetchStream = url => {
     return request.get(url);
@@ -18,6 +17,7 @@ function streamToPromise(stream) {
 
 class Fetcher {
     constructor(o) {
+        this.iconsDir = path.join(`./figicons/icons`);
         this.key = o.key;
         this.token = o.token;
     }
@@ -57,8 +57,8 @@ class Fetcher {
             images = { ...images, ...e.images };
         });
 
-        if (!fs.existsSync(dir)) {
-            fs.mkdirSync(dir);
+        if (!fs.existsSync(this.iconsDir)) {
+            fs.mkdirSync(this.iconsDir);
         }
 
         await Promise.all(this.grabImageFiles(images, iconMap));
@@ -70,7 +70,7 @@ class Fetcher {
         return Object.entries(iconMap).map(([key, icon]) => {
             const stream = fetchStream(images[key]);
 
-            stream.pipe(fs.createWriteStream(path.join(dir, `${icon.name}.svg`)));
+            stream.pipe(fs.createWriteStream(path.join(this.iconsDir, `${icon.name}.svg`)));
 
             return streamToPromise(stream);
         });
