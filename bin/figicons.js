@@ -3,7 +3,6 @@
 const program = require('commander');
 const inquirer = require('inquirer');
 const path = require('path');
-const fs = require('fs');
 const Fetcher = require('../scripts/Fetcher');
 const Parser = require('../scripts/Parser');
 const Messager = require('../scripts/Messager');

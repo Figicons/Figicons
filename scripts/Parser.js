@@ -4,6 +4,7 @@ const cheerio = require('cheerio');
 const parse = require('parse5');
 const SVGO = require('svgo');
 const svgoConfig = require('../configs/svgo.json');
+const FolderManager = require('./FolderManager');
 const Messager = require('./Messager');
 
 class Parser {
@@ -12,16 +13,15 @@ class Parser {
             debugMode: false,
         }
     ) {
-        this.iconsDir = path.join(`./figicons/icons`);
         this.debugMode = o.debugMode;
         this.svgo = new SVGO(svgoConfig);
     }
 
     async read() {
-        const filenames = fs.readdirSync(this.iconsDir);
+        const filenames = fs.readdirSync(FolderManager.dirs.iconsDir);
         const promises = filenames.map(filename => {
             return new Promise(resolve => {
-                fs.readFile(path.join(this.iconsDir, filename), 'utf-8', (err, content) => {
+                fs.readFile(path.join(FolderManager.dirs.iconsDir, filename), 'utf-8', (err, content) => {
                     const $ = cheerio.load(content);
                     const inner = $('svg');
 
@@ -42,13 +42,13 @@ class Parser {
     }
 
     async clean() {
-        const filenames = fs.readdirSync(this.iconsDir);
+        const filenames = fs.readdirSync(FolderManager.dirs.iconsDir);
 
         Messager.startLoading(`🚀  Cleaning & optimizing ${filenames.length} icons`);
 
         const promises = filenames.map(filename => {
             return new Promise(resolve => {
-                const iconPath = path.join(this.iconsDir, filename);
+                const iconPath = path.join(FolderManager.dirs.iconsDir, filename);
                 const iconData = fs.readFileSync(iconPath, 'utf-8');
                 this.svgo.optimize(iconData, { path: iconPath }).then(({ data }) => {
                     fs.writeFile(iconPath, data, resolve);
@@ -76,7 +76,7 @@ class Parser {
             return ob;
         }, {});
 
-        await fs.writeFileSync('./figicons.json', JSON.stringify(icons, null, 2), 'utf-8');
+        await fs.writeFileSync(FolderManager.dirs.iconsJson, JSON.stringify(icons, null, 2), 'utf-8');
 
         Messager.endLoading(`🍭  %s Bundled ${iconData.length} icons`);
     }
