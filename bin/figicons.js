@@ -16,6 +16,8 @@ const keyStoreDir = path.join(__dirname, './store');
     const parser = new Parser();
     const keyStore = storage.create({ dir: keyStoreDir });
 
+    console.log(keyStoreDir);
+
     await keyStore.init();
 
     program

@@ -6,15 +6,29 @@ const Messager = require('./Messager');
 
 class Packager {
     static async package() {
-        Messager.startLoading(`🛠  Packaging Components`);
-
-        config.output.path = path.resolve(process.cwd(), FolderManager.dirs.componentsDir);
-        console.log('output path', config.output.path);
-        const compiler = webpack(config);
-
         return new Promise(resolve => {
-            compiler.run((err, stats) => {
-                console.log('err', err);
+            Messager.startLoading(`🛠  Packaging Components`);
+
+            config.output.path = path.resolve(process.cwd(), FolderManager.dirs.componentsDir);
+
+            webpack(config, (err, stats) => {
+                if (err) {
+                    console.error(err.stack || err);
+                    if (err.details) {
+                        console.error(err.details);
+                    }
+                    return;
+                }
+
+                const info = stats.toJson();
+
+                if (stats.hasErrors()) {
+                    console.error(info.errors);
+                }
+
+                if (stats.hasWarnings()) {
+                    console.warn(info.warnings);
+                }
                 Messager.endLoading(`📦  %s Packaged React & Web Components`);
                 resolve();
             });

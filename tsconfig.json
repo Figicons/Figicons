@@ -4,7 +4,6 @@
     "target": "es6",
     "lib": ["es2015", "es2017", "dom"],
     "sourceMap": true,
-    "allowJs": true,
     "jsx": "react",
     "moduleResolution": "node",
     "forceConsistentCasingInFileNames": true,
@@ -15,7 +14,8 @@
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
     "resolveJsonModule": false,
-    "noUnusedLocals": true
+    "noUnusedLocals": true,
+    "declaration": true
   },
   "exclude": [
     "node_modules"

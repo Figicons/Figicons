@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@webcomponents/custom-elements": "^1.2.1",
+    "app-root-path": "^2.1.0",
     "camelcase": "^5.0.0",
     "chalk-pipe": "^2.0.0",
     "cheerio": "^1.0.0-rc.2",
