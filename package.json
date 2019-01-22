@@ -20,7 +20,7 @@
     "bundle": "webpack",
     "clean": "svgo --quiet --config=./configs/svgo.json -f ./icons -o ./icons",
     "fetch": "node --harmony ./scripts/fetch.js",
-    "parse": "node --harmony ./scripts/parse.js",
+    "parse": "node --harmony ./scripts/Packager.js",
     "prepublishOnly": "npm run bundle"
   },
   "dependencies": {
@@ -32,6 +32,8 @@
     "chalk-pipe": "^2.0.0",
     "cheerio": "^1.0.0-rc.2",
     "commander": "^2.19.0",
+    "gulp": "4",
+    "gulp-typescript": "^5.0.0",
     "inquirer": "^6.2.1",
     "node-persist": "^3.0.2",
     "parse5": "^5.1.0",

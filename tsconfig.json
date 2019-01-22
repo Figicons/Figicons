@@ -1,19 +1,20 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "amd",
     "target": "es6",
     "lib": ["es2015", "es2017", "dom"],
-    "sourceMap": true,
+    "sourceMap": false,
     "jsx": "react",
     "moduleResolution": "node",
     "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noImplicitAny": true,
     "importHelpers": true,
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
-    "resolveJsonModule": false,
+    "resolveJsonModule": true,
     "noUnusedLocals": true
   },
   "exclude": [
