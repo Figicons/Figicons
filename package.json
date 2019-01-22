@@ -1,6 +1,6 @@
 {
   "name": "figicons",
-  "version": "1.0.32",
+  "version": "1.0.34",
   "author": "Stefan Mansson <st.mansson@icloud.com>",
   "repository": {
     "type": "git",
@@ -19,7 +19,8 @@
     "build": "sh ./build.sh",
     "clean": "svgo --quiet --config=./configs/svgo.json -f ./icons -o ./icons",
     "fetch": "node --harmony ./scripts/fetch.js",
-    "parse": "node --harmony ./scripts/Packager.js"
+    "parse": "node --harmony ./scripts/Packager.js",
+    "d": "microbundle build -i ./components/FigiconWebComponent.ts -o daa"
   },
   "dependencies": {
     "@babel/core": "^7.2.2",
@@ -59,6 +60,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "microbundle": "^0.9.0",
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.15.0"
   }
