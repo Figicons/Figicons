@@ -1,37 +1,36 @@
 const path = require('path');
-const appRoot = require('app-root-path');
 
 module.exports = {
     mode: 'production',
     target: 'node',
     entry: {
-        WebComponent: path.join(appRoot.path, 'components/FigiconWebComponent.ts'),
-        ReactComponent: path.join(appRoot.path, 'components/FigiconReact.tsx'),
+        WebComponent: path.join(__dirname, 'components/FigiconWebComponent.ts'),
+        ReactComponent: path.join(__dirname, 'components/FigiconReact.tsx'),
     },
     devtool: 'none',
     output: {
         library: 'Figicons',
         libraryTarget: 'umd',
-        path: path.join(appRoot.path, 'umd'),
+        path: path.join(__dirname, 'umd'),
         filename: '[name].js',
     },
     module: {
         rules: [
             {
-                exclude: /node_modules/,
-                test: /\.tsx?$/,
-                use: 'ts-loader',
+                test: /\.ts|\.tsx$/,
+                loader: ['awesome-typescript-loader'],
             },
         ],
     },
 
     resolve: {
-        modules: [path.join(appRoot.path, 'node_modules')],
-        extensions: ['.ts', '.tsx', '.js'],
+        modules: [__dirname, path.join(__dirname, 'node_modules')],
+        extensions: ['.ts', '.tsx', '.js', '.json'],
     },
 
     resolveLoader: {
-        modules: [path.join(appRoot.path, 'node_modules')],
+        modules: [__dirname, path.join(__dirname, 'node_modules')],
         extensions: ['.ts', '.tsx', '.js', '.json'],
+        moduleExtensions: ['awesome-typescript-loader'],
     },
 };

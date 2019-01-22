@@ -9,8 +9,6 @@ class Packager {
         return new Promise(resolve => {
             Messager.startLoading(`🛠  Packaging Components`);
 
-            config.output.path = path.resolve(process.cwd(), FolderManager.dirs.componentsDir);
-
             webpack(config, (err, stats) => {
                 if (err) {
                     console.error(err.stack || err);

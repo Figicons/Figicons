@@ -14,8 +14,7 @@
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
     "resolveJsonModule": false,
-    "noUnusedLocals": true,
-    "declaration": true
+    "noUnusedLocals": true
   },
   "exclude": [
     "node_modules"
