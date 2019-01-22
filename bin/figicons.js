@@ -104,17 +104,17 @@ const keyStoreDir = path.join(__dirname, './store');
         });
 
         try {
-            const figmaData = await fetcher.getFigmaProject(config.key);
+            // const figmaData = await fetcher.getFigmaProject(config.key);
 
-            if (!isSaved) {
-                await keyStore.setItem(config.key, {
-                    name: figmaData.name,
-                    token: config.token,
-                });
-                Messager.log(`⏰  %s Saved project key to recents.`, true);
-            }
+            // if (!isSaved) {
+            //     await keyStore.setItem(config.key, {
+            //         name: figmaData.name,
+            //         token: config.token,
+            //     });
+            //     Messager.log(`⏰  %s Saved project key to recents.`, true);
+            // }
 
-            await fetcher.grabImageData(figmaData);
+            // await fetcher.grabImageData(figmaData);
             await parser.clean();
             await parser.bundle();
             await Packager.package();
@@ -122,6 +122,6 @@ const keyStoreDir = path.join(__dirname, './store');
             Messager.log(error.message);
         }
 
-        Messager.endCommand();
+        // Messager.endCommand();
     }
 })();

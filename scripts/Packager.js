@@ -8,6 +8,11 @@ const resolve = require('rollup-plugin-node-resolve');
 const json = require('rollup-plugin-json');
 const replace = require('rollup-plugin-replace');
 
+const path1 = path.join(__dirname, '..', 'components/FigiconReact.tsx');
+const paths = [path1];
+Messager.log(path1);
+Messager.log(path.join(__dirname, '..', 'node_modules', '**'));
+
 const output = [
     {
         file: 't.cjs.js',
@@ -31,15 +36,19 @@ const plugins = [
         compact: true,
     }),
     external(),
-    resolve(),
+    resolve({
+        module: true,
+        jsnext: true,
+    }),
     typescript({
+        typescript: require('typescript'),
         clean: true,
         rollupCommonJSResolveHack: true,
         exclude: ['*.d.ts', '**/*.d.ts'],
     }),
+
     commonjs({
-        include: ['node_modules/**'],
-        exclude: ['node_modules/process-es6/**'],
+        include: /\/node_modules\//,
         namedExports: {
             'node_modules/react/index.js': ['Children', 'Component', 'PropTypes', 'createElement'],
         },
@@ -51,17 +60,19 @@ const plugins = [
 
 class Packager {
     static async package() {
-        console.log('e');
-        const outputOptions = rollupConfig.output;
-
-        [path.join(__dirname, '..', 'components/FigiconReact.tsx')].forEach(async input => {
+        Messager.startLoading(`🛠  Packaging Components`);
+        paths.forEach(async input => {
             const bundle = await rollup.rollup({ input, plugins });
 
             output.forEach(o => {
                 bundle.write(o);
             });
         });
+
+        Messager.endLoading(`📦  %s Packaged React & Web Components`);
     }
 }
 
 module.exports = Packager;
+
+// Packager.package();
