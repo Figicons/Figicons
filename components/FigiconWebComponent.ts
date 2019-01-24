@@ -2,11 +2,12 @@ import '@webcomponents/custom-elements/custom-elements.min.js';
 import * as figicons from '../figicons.json';
 import * as iconAttrs from '../configs/iconAttributes.json';
 
-interface AttributeOverride {
-    size?: string;
-}
-
-const createSVG = (innerHTML: string, attrOverride: AttributeOverride) => {
+const createSVG = (
+    innerHTML: string,
+    attrOverride: {
+        size?: string;
+    }
+) => {
     const svg = document.createElementNS((iconAttrs as any).xmlns || 'http://www.w3.org/2000/svg', 'svg');
 
     Object.entries(iconAttrs).forEach(([prop, val]) => {
@@ -31,7 +32,9 @@ export default class Figicon extends HTMLElement {
     }
 
     public renderSVG() {
-        const override: AttributeOverride = {};
+        const override: {
+            size?: string;
+        } = {};
         const name = this.getAttribute('name');
 
         if (name === null) return;

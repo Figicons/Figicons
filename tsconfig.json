@@ -13,7 +13,7 @@
     "importHelpers": true,
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
-    "resolveJsonModule": false,
+    "resolveJsonModule": true,
     "noUnusedLocals": true
   },
   "exclude": [

@@ -1,4 +1,5 @@
 node_modules
-umd
 bin/store
 figicons
+.rts2_*
+dist

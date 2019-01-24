@@ -3,11 +3,6 @@ import * as figicons from '../figicons.json';
 import * as iconAttrs from '../configs/iconAttributes.json';
 const camelCase = require('camelcase');
 
-interface Props {
-    name: string;
-    [index: string]: any;
-}
-
 const svgAttrs = () =>
     Object.entries(iconAttrs).reduce((a, [prop, val]) => {
         const p = prop.includes('-') ? camelCase(prop) : prop;
@@ -15,7 +10,7 @@ const svgAttrs = () =>
         return a;
     }, {});
 
-const Figicon = ({ name, ...props }: Props) => (
+const Figicon = ({ name, ...props }: { name: string; [index: string]: any }) => (
     <svg className="figicon" {...svgAttrs()} {...props} dangerouslySetInnerHTML={{ __html: figicons[name].content }} />
 );
 
