@@ -1,6 +1,6 @@
 {
   "name": "figicons",
-  "version": "1.0.42",
+  "version": "1.0.43",
   "author": "Stefan Mansson <st.mansson@icloud.com>",
   "repository": {
     "type": "git",
@@ -33,11 +33,11 @@
     "microbundle": "^0.9.0",
     "node-persist": "^3.0.2",
     "parse5": "^5.1.0",
+    "react": ">=15",
     "request": "^2.88.0",
     "svgo": "^1.1.1"
   },
   "peerDependencies": {
-    "react": ">=15",
     "tslib": "^1.9.0",
     "typescript": "^3.1.4"
   },
