@@ -1,6 +1,6 @@
 {
   "name": "figicons",
-  "version": "1.0.38",
+  "version": "1.0.39",
   "author": "Stefan Mansson <st.mansson@icloud.com>",
   "repository": {
     "type": "git",
@@ -39,14 +39,6 @@
     "parse5": "^5.1.0",
     "react": ">=15",
     "request": "^2.88.0",
-    "rollup": "^0.68.1",
-    "rollup-plugin-babel": "^4.3.2",
-    "rollup-plugin-commonjs": "^9.2.0",
-    "rollup-plugin-json": "^3.1.0",
-    "rollup-plugin-node-resolve": "^4.0.0",
-    "rollup-plugin-peer-deps-external": "^2.2.0",
-    "rollup-plugin-replace": "^2.1.0",
-    "rollup-plugin-typescript2": "^0.19.2",
     "svgo": "^1.1.1",
     "tslib": "^1.9.0",
     "typescript": "^3.1.4"
