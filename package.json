@@ -9,34 +9,17 @@
   "homepage": "https://figicons.com",
   "license": "MIT",
   "private": false,
-  "bin": {
-    "figicons": "./bin/figicons.js"
-  },
   "engines": {
     "node": ">=8"
   },
   "scripts": {
-    "build": "sh ./build.sh",
-    "clean": "svgo --quiet --config=./configs/svgo.json -f ./icons -o ./icons",
-    "fetch": "node --harmony ./scripts/fetch.js",
-    "parse": "node --harmony ./scripts/Packager.js",
     "d": "microbundle build -i ./components/FigiconWebComponent.ts -o daa"
   },
   "dependencies": {
     "@types/react": "^16.4.18",
     "@webcomponents/custom-elements": "^1.2.1",
-    "app-root-path": "^2.1.0",
-    "camelcase": "^5.0.0",
-    "chalk-pipe": "^2.0.0",
-    "cheerio": "^1.0.0-rc.2",
-    "commander": "^2.19.0",
-    "inquirer": "^6.2.1",
     "microbundle": "^0.9.0",
-    "node-persist": "^3.0.2",
-    "parse5": "^5.1.0",
-    "react": ">=15",
-    "request": "^2.88.0",
-    "svgo": "^1.1.1"
+    "react": ">=15"
   },
   "peerDependencies": {
     "tslib": "^1.9.0",
@@ -47,7 +30,6 @@
     "@babel/plugin-proposal-class-properties": "7.2.1",
     "@babel/plugin-syntax-jsx": "^7.2.0",
     "@babel/polyfill": "^7.0.0",
-    "@types/camelcase": "^4.1.0",
     "babel-core": "^6.26.3",
     "babel-plugin-transform-async-to-promises": "^0.8.4",
     "babel-plugin-transform-runtime": "^6.23.0",
