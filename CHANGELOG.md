@@ -1,3 +1,11 @@
+## [Version 1.1.0](https://github.com/Figicons/Figicons/releases/tag/v1.1.0) (2019-4-8)
+
+### New features
+
+- use figicons-cli to build: [`ddb8453`](https://github.com/Figicons/Figicons/commit/ddb8453)
+
+[...full changes](https://github.com/Figicons/Figicons/compare/v1.0.63...v1.1.0)
+
 ## [Version 1.0.63](https://github.com/Figicons/Figicons/releases/tag/v1.0.63) (2019-4-8)
 
 ### Bug fixes
