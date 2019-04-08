@@ -1,3 +1,11 @@
+## [Version 1.0.61](https://github.com/Figicons/Figicons/releases/tag/v1.0.61) (2019-4-8)
+
+### Bug fixes
+
+- cleanup: [`be5f491`](https://github.com/Figicons/Figicons/commit/be5f491)
+
+[...full changes](https://github.com/Figicons/Figicons/compare/v1.0.60...v1.0.61)
+
 ## [Version 1.0.60](https://github.com/Figicons/Figicons/releases/tag/v1.0.60) (2019-4-8)
 
 ### Bug fixes
