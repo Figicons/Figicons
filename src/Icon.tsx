@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as iconAttrs from './configs/iconAttributes.json';
+import * as iconAttrs from '../configs/iconAttributes.json';
 import Preferences from './Preferences';
 
 const camelCase = require('camelcase');

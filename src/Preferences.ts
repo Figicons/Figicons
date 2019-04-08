@@ -1,3 +1,5 @@
+import * as iconSet from './figicons.json';
+
 interface IConfig {
     iconSet: {
         [index: string]: {
@@ -16,7 +18,7 @@ export default class Preferences {
 
     public static setDefaultConfig() {
         Preferences.config = {
-            iconSet: require('./figicons.json'),
+            iconSet,
         };
     }
 
