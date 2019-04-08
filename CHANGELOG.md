@@ -1,3 +1,11 @@
+## [Version 1.0.62](https://github.com/Figicons/Figicons/releases/tag/v1.0.62) (2019-4-8)
+
+### Bug fixes
+
+- remove svgo: [`792d5e1`](https://github.com/Figicons/Figicons/commit/792d5e1)
+
+[...full changes](https://github.com/Figicons/Figicons/compare/v1.0.61...v1.0.62)
+
 ## [Version 1.0.61](https://github.com/Figicons/Figicons/releases/tag/v1.0.61) (2019-4-8)
 
 ### Bug fixes
