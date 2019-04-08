@@ -1,6 +1,6 @@
 {
   "name": "figicons",
-  "version": "1.0.58",
+  "version": "1.0.59",
   "author": "Stefan Mansson <st.mansson@icloud.com>",
   "repository": {
     "type": "git",
@@ -18,10 +18,7 @@
   "main": "dist/figicons.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "yarn build:umd && yarn build:npm",
-    "build:umd": "webpack -p --config webpack.umd.config.js",
-    "build:npm": "webpack -p --config webpack.npm.config.js",
-    "d": "microbundle build -i ./index.ts -o dist"
+    "build": "microbundle build -i ./src/index.ts -o dist"
   },
   "dependencies": {
     "@types/react": "^16.4.18",
