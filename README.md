@@ -19,6 +19,26 @@ Figicons was built from the ground up with support for your own Figma-designed c
 [Check the full documentation](https://figicons.com/building-icons)
 
 ## Installation
+#### Install via a package manager
+
+Using Yarn:
+```shell
+$ yarn add figicons
+```
+
+Or using npm:
+
+```shell
+$ npm install figicons
+```
+
+Finally, import the Icon component where needed:
+
+```js
+import Figicons, { Icon } from 'figicons';
+```
+
+
 #### CDN 
 
 To use the **React Component**, import:
@@ -27,23 +47,11 @@ To use the **React Component**, import:
 https://unpkg.com/figicons/umd/ReactComponent.js
 ```
 
-Or to use the **Web Component**, import: 
-
-```
-https://unpkg.com/figicon/umd/WebComponent.js
-```
-
 ## Usage
 To use the **React Component**, use the `Figicon` React element like so:
 
 ```jsx
-<Figicon name="heart"/>
-```
-
-Or to use the **Web Component**, use the `fig-icon` Web Component like so: 
-
-```html
-<fig-icon name="heart"></fig-icon>
+<Icon name="heart"/>
 ```
 
 [Check the full documentation on Usage](https://figicons.com/usage)
