@@ -1,4 +1,4 @@
-import * as iconSet from './figicons.json';
+import * as iconSet from '../figicons/figicons.json';
 
 interface IConfig {
     iconSet: {
