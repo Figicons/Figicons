@@ -1,3 +1,11 @@
+## [Version 1.0.63](https://github.com/Figicons/Figicons/releases/tag/v1.0.63) (2019-4-8)
+
+### Bug fixes
+
+- camelcase dependency: [`b7168cf`](https://github.com/Figicons/Figicons/commit/b7168cf)
+
+[...full changes](https://github.com/Figicons/Figicons/compare/v1.0.62...v1.0.63)
+
 ## [Version 1.0.62](https://github.com/Figicons/Figicons/releases/tag/v1.0.62) (2019-4-8)
 
 ### Bug fixes
