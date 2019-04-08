@@ -1,6 +1,6 @@
 {
   "name": "figicons",
-  "version": "1.0.50",
+  "version": "1.0.51",
   "author": "Stefan Mansson <st.mansson@icloud.com>",
   "repository": {
     "type": "git",
@@ -12,6 +12,11 @@
   "engines": {
     "node": ">=8"
   },
+  "files": [
+    "dist"
+  ],
+  "main": "dist/figicons.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "yarn build:umd && yarn build:npm",
     "build:umd": "webpack -p --config webpack.umd.config.js",
