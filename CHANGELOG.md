@@ -1,3 +1,13 @@
+## [Version 1.1.1](https://github.com/Figicons/Figicons/releases/tag/v1.1.1) (2019-4-27)
+
+### Bug fixes
+
+- Update README.md: [`2d358eb`](https://github.com/Figicons/Figicons/commit/2d358eb)
+- Commit icons and config: [`e882be7`](https://github.com/Figicons/Figicons/commit/e882be7)
+- Update build.sh: [`ac915a1`](https://github.com/Figicons/Figicons/commit/ac915a1)
+
+[...full changes](https://github.com/Figicons/Figicons/compare/v1.1.0...v1.1.1)
+
 ## [Version 1.1.0](https://github.com/Figicons/Figicons/releases/tag/v1.1.0) (2019-4-8)
 
 ### New features
