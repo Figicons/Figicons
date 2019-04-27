@@ -10,7 +10,7 @@
 
 
 function DELETE_TEMP {
-    rm -rf dist
+    rm -rf ./dist
     mkdir dist
 }
 
