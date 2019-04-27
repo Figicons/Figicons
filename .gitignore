@@ -1,5 +1,4 @@
 node_modules
 .rts2_*
 dist
-figicons
 yarn-error.log
