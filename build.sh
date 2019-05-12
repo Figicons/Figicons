@@ -19,7 +19,7 @@ function BUILD {
 }
 
 function PUBLISH {
-    yarn publish
+    yarn package
 }
 
 function COPY {

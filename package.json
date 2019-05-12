@@ -19,7 +19,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "release": "sh ./build.sh publish",
-    "publish": "changelog && git push --follow-tags && yarn publish --access public --non-interactive",
+    "package": "changelog && git push --follow-tags && yarn publish --access public --non-interactive",
     "build": "microbundle build -i ./src/index.ts -o dist"
   },
   "peerDependencies": {
