@@ -38,14 +38,14 @@ Finally, import the Icon component where needed:
 import Figicons, { Icon } from 'figicons';
 ```
 
-## Usage
-To use the **React Component**, use the `Icon` React element like so:
+## Getting Started
+Once imported, simply use the React `<Icon />` component.
 
 ```jsx
 <Icon name="heart"/>
 ```
 
-[Check the full documentation on Usage](https://figicons.com/usage)
+[Check the full documentation on Getting Started](https://figicons.com/start)
 
 ## API
 Figicons comes with a core config that can be altered using the API. You should use the API if you're intending to build and use custom icons with Figicons.
