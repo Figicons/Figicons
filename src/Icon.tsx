@@ -1,11 +1,10 @@
 import * as React from 'react';
-import * as iconAttrs from '../configs/iconAttributes.json';
 import Preferences from './Preferences';
 
 const camelCase = require('camelcase');
 
 const svgAttrs = () =>
-    Object.entries(iconAttrs).reduce((a, [prop, val]) => {
+    Object.entries(Preferences.attributes).reduce((a, [prop, val]) => {
         const p = prop.includes('-') ? camelCase(prop) : prop;
         a[p] = val;
         return a;

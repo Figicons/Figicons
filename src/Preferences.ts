@@ -1,28 +1,40 @@
-import * as iconSet from '../figicons/figicons.json';
-
-interface IConfig {
-    iconSet: {
-        [index: string]: {
-            name: string;
-            file: string;
-            content: string;
-        };
-    };
-}
+import * as defaultIcons from '../figicons/figicons.json';
+import * as iconAttrs from '../configs/iconAttributes.json';
+import { IConfig } from '../types/interfaces';
 
 export default class Preferences {
     public static config: IConfig;
-    public static get icons(): IConfig['iconSet'] {
-        return Preferences.config.iconSet;
+
+    public static get icons(): IConfig['icons'] {
+        return Preferences.config.icons;
+    }
+
+    public static get attributes(): IConfig['attributes'] {
+        return Preferences.config.attributes;
     }
 
     public static setDefaultConfig() {
         Preferences.config = {
-            iconSet,
+            icons: defaultIcons,
+            attributes: iconAttrs,
         };
     }
 
-    public static setConfig(config: IConfig) {
+    public static setCustomConfig(config: IConfig) {
         Preferences.config = config;
+    }
+
+    public static setIcons(icons: IConfig['icons']) {
+        Preferences.config = {
+            ...Preferences.config,
+            icons,
+        };
+    }
+
+    public static setAttributes(attributes: IConfig['attributes']) {
+        Preferences.config = {
+            ...Preferences.config,
+            attributes,
+        };
     }
 }
