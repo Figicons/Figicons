@@ -18,8 +18,8 @@
   "main": "dist/figicons.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "d": "sh ./build.sh release",
-    "release": "changelog && git push --follow-tags && yarn publish --access public --non-interactive",
+    "release": "sh ./build.sh publish",
+    "publish": "changelog && git push --follow-tags && yarn publish --access public --non-interactive",
     "build": "microbundle build -i ./src/index.ts -o dist"
   },
   "peerDependencies": {

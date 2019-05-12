@@ -3,7 +3,7 @@
 # Build Figicons
 #
 # Optimize and build icons:
-# ./build.sh release
+# ./build.sh publish
 #
 # Optimize, build icons and create Figicons:
 # ./build.sh
@@ -18,8 +18,8 @@ function BUILD {
     yarn build
 }
 
-function RELEASE {
-    yarn release
+function PUBLISH {
+    yarn publish
 }
 
 function COPY {
@@ -33,13 +33,13 @@ function CLEAN {
     rm -rf dist
 }
 
-if [[ $1 == "release" ]]; then
+if [[ $1 == "publish" ]]; then
 DELETE_TEMP
 BUILD
 COPY
-RELEASE
+PUBLISH
 CLEAN
-echo -e "Build & release completed."
+echo -e "Build & publish completed."
 elif [ $# -eq 0 ]; then
 DELETE_TEMP
 BUILD
