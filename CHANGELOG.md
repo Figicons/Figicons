@@ -1,3 +1,15 @@
+## [Version 1.2.0](https://github.com/Figicons/Figicons/releases/tag/v1.2.0) (2019-5-12)
+
+### New features
+
+- Use preferences in config, add more functions: [`31651ac`](https://github.com/Figicons/Figicons/commit/31651ac)
+
+### Bug fixes
+
+- Fix default export: [`637f986`](https://github.com/Figicons/Figicons/commit/637f986)
+
+[...full changes](https://github.com/Figicons/Figicons/compare/v1.1.2...v1.2.0)
+
 ## [Version 1.1.1](https://github.com/Figicons/Figicons/releases/tag/v1.1.1) (2019-4-27)
 
 ### Bug fixes
