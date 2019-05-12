@@ -1,3 +1,11 @@
+## [Version 1.2.1](https://github.com/Figicons/Figicons/releases/tag/v1.2.1) (2019-5-12)
+
+### Bug fixes
+
+- fix icon props type for svg: [`a5353bf`](https://github.com/Figicons/Figicons/commit/a5353bf)
+
+[...full changes](https://github.com/Figicons/Figicons/compare/v1.2.0...v1.2.1)
+
 ## [Version 1.2.0](https://github.com/Figicons/Figicons/releases/tag/v1.2.0) (2019-5-12)
 
 ### New features
