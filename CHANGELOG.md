@@ -1,3 +1,12 @@
+## [Version 1.2.2](https://github.com/Figicons/Figicons/releases/tag/v1.2.2) (2019-5-12)
+
+### Bug fixes
+
+- fix build script: [`b4ebb44`](https://github.com/Figicons/Figicons/commit/b4ebb44)
+- fix reserved name: [`af42091`](https://github.com/Figicons/Figicons/commit/af42091)
+
+[...full changes](https://github.com/Figicons/Figicons/compare/v1.2.1...v1.2.2)
+
 ## [Version 1.2.1](https://github.com/Figicons/Figicons/releases/tag/v1.2.1) (2019-5-12)
 
 ### Bug fixes
