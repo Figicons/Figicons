@@ -10,7 +10,7 @@ const svgAttrs = () =>
         return a;
     }, {});
 
-const Icon = ({ name, ...props }: { name: string; [index: string]: any }) => (
+const Icon = ({ name, ...props }: { name: string } & React.SVGProps<SVGSVGElement>) => (
     <svg className="figicon" {...svgAttrs()} {...props} dangerouslySetInnerHTML={{ __html: Preferences.icons[name].content }} />
 );
 
