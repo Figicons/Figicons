@@ -14,9 +14,9 @@ The Figicons source is open in Figma, [check them out](https://www.figma.com/fil
 
 ## Building your own custom icons
 
-Figicons was built from the ground up with support for your own Figma-designed custom icons. In just a few steps you can create your own React & Web components. 
+Figicons was built from the ground up with support for your own Figma-designed custom icons. In just a few steps you can create your own React & Web components using the [Figicons CLI](https://github.com/Figicons/cli).
 
-[Check the full documentation](https://figicons.com/building-icons)
+[Check the full documentation](https://figicons.com/custom-icons)
 
 ## Installation
 #### Install via a package manager
@@ -38,23 +38,19 @@ Finally, import the Icon component where needed:
 import Figicons, { Icon } from 'figicons';
 ```
 
-
-#### CDN 
-
-To use the **React Component**, import:
-
-```
-https://unpkg.com/figicons/umd/ReactComponent.js
-```
-
 ## Usage
-To use the **React Component**, use the `Figicon` React element like so:
+To use the **React Component**, use the `Icon` React element like so:
 
 ```jsx
 <Icon name="heart"/>
 ```
 
 [Check the full documentation on Usage](https://figicons.com/usage)
+
+## API
+Figicons comes with a core config that can be altered using the API. You should use the API if you're intending to build and use custom icons with Figicons.
+
+[Check the full documentation on the API](https://figicons.com/api)
 
 ## Contributing guidelines
 
