@@ -10,8 +10,6 @@ Figicons is an open-source SVG icon set containing over 150+ icons designed on a
 
 The Figicons source file is [available in Figma](https://www.figma.com/file/eIOdDEWeiHETuccK5xpfNhEc/Icons). Feel free to create issues for icon suggestions on the default icon set.
 
-###### Figicons is not affiliated with Figma in any way
-
 ## Building your own custom icons
 
 Figicons was built from the ground up with support for your own Figma-designed custom icons. In just a few steps you can create your own React & Web components using the [Figicons CLI](https://github.com/Figicons/cli).
@@ -59,3 +57,7 @@ If you wish to contribute to the Figicons project please check out the [contribu
 ## License
 
 Figicons is licensed under the [MIT License](LICENSE)
+
+---
+
+###### Figicons is not affiliated with Figma in any way
