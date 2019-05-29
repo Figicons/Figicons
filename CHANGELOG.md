@@ -1,3 +1,11 @@
+## [Version 1.2.4](https://github.com/Figicons/Figicons/releases/tag/v1.2.4) (2019-5-29)
+
+### Bug fixes
+
+- bump version: [`d84c856`](https://github.com/Figicons/Figicons/commit/d84c856)
+
+[...full changes](https://github.com/Figicons/Figicons/compare/v1.2.3...v1.2.4)
+
 ## [Version 1.2.3](https://github.com/Figicons/Figicons/releases/tag/v1.2.3) (2019-5-29)
 
 ### Bug fixes
