@@ -1,3 +1,11 @@
+## [Version 1.2.3](https://github.com/Figicons/Figicons/releases/tag/v1.2.3) (2019-5-29)
+
+### Bug fixes
+
+- append className if available: [`bf167e7`](https://github.com/Figicons/Figicons/commit/bf167e7)
+
+[...full changes](https://github.com/Figicons/Figicons/compare/v1.2.2...v1.2.3)
+
 ## [Version 1.2.2](https://github.com/Figicons/Figicons/releases/tag/v1.2.2) (2019-5-12)
 
 ### Bug fixes
