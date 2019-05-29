@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Preferences from './Preferences';
-
 const camelCase = require('camelcase');
 
 const svgAttrs = () =>
