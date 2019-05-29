@@ -1,5 +1,5 @@
 import * as defaultIcons from '../figicons/figicons.json';
-import * as iconAttrs from '../configs/iconAttributes.json';
+import * as iconAttrs from './iconAttributes.json';
 import { IConfig } from '../types/interfaces';
 
 export default class Preferences {
