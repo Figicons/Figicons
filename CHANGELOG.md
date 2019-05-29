@@ -1,3 +1,11 @@
+## [Version 1.2.5](https://github.com/Figicons/Figicons/releases/tag/v1.2.5) (2019-5-29)
+
+### Bug fixes
+
+- move iconAttrs into src: [`8ffa021`](https://github.com/Figicons/Figicons/commit/8ffa021)
+
+[...full changes](https://github.com/Figicons/Figicons/compare/v1.2.4...v1.2.5)
+
 ## [Version 1.2.4](https://github.com/Figicons/Figicons/releases/tag/v1.2.4) (2019-5-29)
 
 ### Bug fixes
