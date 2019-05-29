@@ -1,4 +1,4 @@
-![Figicons](https://raw.githubusercontent.com/Figicons/Homepage/master/src/assets/Github-cover.png)
+![Figicons](https://raw.githubusercontent.com/Figicons/Homepage/master/src/assets/cover.png)
 
 ## About Figicons
 
