@@ -1,3 +1,11 @@
+## [Version 1.2.6](https://github.com/Figicons/Figicons/releases/tag/v1.2.6) (2019-8-11)
+
+### Bug fixes
+
+- fix default exports: [`7c81f23`](https://github.com/Figicons/Figicons/commit/7c81f23)
+
+[...full changes](https://github.com/Figicons/Figicons/compare/v1.2.5...v1.2.6)
+
 ## [Version 1.2.5](https://github.com/Figicons/Figicons/releases/tag/v1.2.5) (2019-5-29)
 
 ### Bug fixes
