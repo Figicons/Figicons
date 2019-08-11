@@ -1,3 +1,11 @@
+## [Version 1.2.7](https://github.com/Figicons/Figicons/releases/tag/v1.2.7) (2019-8-11)
+
+### Bug fixes
+
+- fix typing export: [`d5fd837`](https://github.com/Figicons/Figicons/commit/d5fd837)
+
+[...full changes](https://github.com/Figicons/Figicons/compare/v1.2.6...v1.2.7)
+
 ## [Version 1.2.6](https://github.com/Figicons/Figicons/releases/tag/v1.2.6) (2019-8-11)
 
 ### Bug fixes
