@@ -9,5 +9,4 @@ Object.defineProperty(exports, '__esModule', {
 });
 
 export default Preferences;
-
 export { Icon, IConfig };
