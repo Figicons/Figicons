@@ -1,5 +1,5 @@
 import Icon from './Icon';
-import { preferences } from './Preferences';
+import { preferences, setAttributes, setIcons } from './Preferences';
 import { IConfig } from './types/interfaces';
 
-export { Icon, IConfig, preferences };
+export { Icon, IConfig, preferences, setIcons, setAttributes };

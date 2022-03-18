@@ -1,3 +1,18 @@
+import type { SVGAttributes } from 'react';
+
+export type Attributes = Pick<
+  SVGAttributes<HTMLOrSVGElement>,
+  | 'xmlns'
+  | 'viewBox'
+  | 'fill'
+  | 'height'
+  | 'width'
+  | 'stroke'
+  | 'strokeWidth'
+  | 'strokeLinecap'
+  | 'strokeLinejoin'
+>;
+
 export interface IConfig {
   icons: {
     [index: string]: {
@@ -6,15 +21,5 @@ export interface IConfig {
       content: string;
     };
   };
-  attributes: {
-    xmlns: string;
-    viewBox: string;
-    fill: string;
-    height: number;
-    width: number;
-    stroke: string;
-    'stroke-width': number;
-    'stroke-linejoin': string;
-    'stroke-linecap': string;
-  };
+  attributes: Attributes;
 }
