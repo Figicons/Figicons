@@ -1,21 +1,25 @@
 import * as React from 'react';
-import Preferences from './Preferences';
-const camelCase = require('camelcase');
+import { preferences } from './Preferences';
+import camelCase from 'camelcase';
 
 const svgAttrs = () =>
-    Object.entries(Preferences.attributes).reduce((a, [prop, val]) => {
-        const p = prop.includes('-') ? camelCase(prop) : prop;
-        a[p] = val;
-        return a;
-    }, {});
+  Object.entries(preferences.attributes).reduce((a, [prop, val]) => {
+    const p = prop.includes('-') ? camelCase(prop) : prop;
+    a[p] = val;
+    return a;
+  }, {} as Record<string, string | number>);
 
-const Icon = ({ name, className, ...props }: { name: string } & React.SVGProps<SVGSVGElement>) => (
+interface Props extends React.SVGProps<SVGSVGElement> {
+  name: string;
+}
+
+export default function Icon({ name, className, ...props }: Props) {
+  return (
     <svg
-        className={className ? `icon ${className}` : 'icon'}
-        {...svgAttrs()}
-        {...props}
-        dangerouslySetInnerHTML={{ __html: Preferences.icons[name].content }}
+      className={className ? `icon ${className}` : 'icon'}
+      {...svgAttrs()}
+      {...props}
+      dangerouslySetInnerHTML={{ __html: preferences.icons[name].content }}
     />
-);
-
-export default Icon;
+  );
+}

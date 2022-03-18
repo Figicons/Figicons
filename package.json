@@ -1,61 +1,41 @@
 {
-  "name": "figicons",
-  "version": "1.2.7",
-  "author": "Stefan Mansson <st.mansson@icloud.com>",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Figicons/Figicons.git"
-  },
-  "keywords": [
-    "figicons",
-    "icons",
-    "figma",
-    "react",
-    "custom-icon",
-    "svgo",
-    "design"
-  ],
-  "homepage": "https://figicons.com",
+  "version": "0.1.0",
   "license": "MIT",
-  "private": false,
-  "engines": {
-    "node": ">=8"
-  },
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
-  "main": "dist/figicons.js",
-  "types": "dist/index.d.ts",
+  "engines": {
+    "node": ">=10"
+  },
   "scripts": {
-    "release": "sh ./build.sh publish",
-    "package": "changelog && git push --follow-tags && yarn publish --access public --non-interactive",
-    "build": "microbundle build -i ./src/index.ts -o dist"
+    "start": "tsdx watch",
+    "build": "rimraf dist && tsdx build",
+    "test": "tsdx test --passWithNoTests",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build"
   },
   "peerDependencies": {
-    "react": ">=15"
+    "react": "^16.x || ^17.x"
   },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "figicons",
+  "author": "Stefan Mansson",
+  "module": "dist/figicons.esm.js",
   "devDependencies": {
-    "@babel/core": "^7.2.2",
-    "@babel/plugin-proposal-class-properties": "7.2.1",
-    "@babel/plugin-syntax-jsx": "^7.2.0",
-    "@babel/polyfill": "^7.0.0",
-    "@types/react": "^16.4.18",
-    "babel-core": "^6.26.3",
-    "babel-plugin-transform-async-to-promises": "^0.8.4",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
-    "changelog.md": "^1.1.0",
-    "microbundle": "^0.9.0",
-    "ts-loader": "^5.3.3",
-    "tslib": "^1.9.0",
-    "tslint": "^5.11.0",
-    "tslint-config-prettier": "^1.15.0",
-    "typescript": "^3.1.4"
-  },
-  "dependencies": {
-    "camelcase": "^5.3.1"
+    "@types/react": "^17.0.40",
+    "@types/react-dom": "^17.0.13",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.3.1",
+    "typescript": "^4.6.2"
   }
 }
