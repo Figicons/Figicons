@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "1.2.8",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -14,6 +14,7 @@
     "start": "tsdx watch",
     "build": "rimraf dist && tsdx build",
     "test": "tsdx test --passWithNoTests",
+    "package": "changelog && git push --follow-tags && yarn publish --access public --non-interactive",
     "lint": "tsdx lint",
     "prepare": "tsdx build"
   },
@@ -37,5 +38,8 @@
     "tsdx": "^0.14.1",
     "tslib": "^2.3.1",
     "typescript": "^4.6.2"
+  },
+  "dependencies": {
+    "changelog.md": "^1.1.0"
   }
 }
