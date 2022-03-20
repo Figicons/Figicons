@@ -16,8 +16,8 @@ export type Attributes = Pick<
 export interface IConfig {
   icons: {
     [index: string]: {
-      name: string;
-      file: string;
+      height: number;
+      width: number;
       content: string;
     };
   };

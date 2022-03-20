@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { preferences } from './Preferences';
+import { preferences } from './prefences';
 import camelCase from 'camelcase';
 
 const svgAttrs = () =>
@@ -17,6 +17,8 @@ export default function Icon({ name, className, ...props }: Props) {
   return (
     <svg
       className={className ? `icon ${className}` : 'icon'}
+      height={preferences.icons[name].height}
+      width={preferences.icons[name].width}
       {...svgAttrs()}
       {...props}
       dangerouslySetInnerHTML={{ __html: preferences.icons[name].content }}
